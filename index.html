@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monk Studios Production | Nagpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --accent: #B85C38; 
+            --accent-light: #FFB38A; 
+            --bg: #050403; 
+            --surface: #120D0B; 
+            --text: #FFFFFF; 
+            --gray: #A5A5A5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+        .site-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(5, 4, 3, 0.9), rgba(5, 4, 3, 0.7)), 
+                        url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=2070&q=80');
+            background-size: cover; background-position: center; z-index: -2;
+        }
+
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.1; pointer-events: none; z-index: 10000;
+        }
+
+        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- NAVIGATION --- */
+        nav { 
+            position: fixed; top: 0; width: 100%; z-index: 10000; 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 25px 8%; background: rgba(5, 4, 3, 0.95);
+            backdrop-filter: blur(20px); border-bottom: 2px solid var(--accent); 
+        }
+        .logo { font-weight: 900; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+        .nav-links { display: flex; gap: 30px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; }
+
+        /* --- ACTION DOCK (Call + Insta + WA) --- */
+        .action-dock { position: fixed; bottom: 30px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; }
+        .btn-float { padding: 18px 30px; border-radius: 4px; font-weight: 900; text-transform: uppercase; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .btn-call { background: #FFFFFF; color: #000; }
+        .btn-whatsapp { background: #25D366; color: #000; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: #fff; }
+
+        /* --- HERO --- */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 0 8%; gap: 50px; }
+        .hero-content { flex: 1.2; text-align: left; }
+        .logo-img-container { width: 100%; max-width: 220px; margin-bottom: 25px; }
+        .hero-logo { width: 100%; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8)); }
+        .hero-content h1 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; line-height: 0.95; margin-bottom: 25px; }
+        .hero-content p { font-size: 0.85rem; color: var(--accent); letter-spacing: 6px; text-transform: uppercase; font-weight: 900; }
+
+        .phone-mockup { width: 290px; height: 580px; border: 12px solid #1A120F; border-radius: 45px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8); }
+        .phone-mockup video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- THE EXPERTISE (REVERTED TO FULL DETAIL) --- */
+        section { padding: 120px 8%; }
+        .section-header { text-align: left; margin-bottom: 80px; border-left: 6px solid var(--accent); padding-left: 30px; }
+        .section-header h2 { font-size: clamp(3rem, 6vw, 5rem); text-transform: uppercase; line-height: 0.9; margin-bottom: 15px; }
+        
+        .expertise-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .expertise-category h4 { color: var(--accent); font-size: 1.2rem; margin-bottom: 25px; letter-spacing: 3px; text-transform: uppercase; border-bottom: 1px solid rgba(184, 92, 56, 0.2); padding-bottom: 10px; }
+        .service-card { background: var(--surface); padding: 40px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; cursor: pointer; margin-bottom: 15px; }
+        .service-card h3 { font-size: 1.4rem; color: var(--accent-light); text-transform: uppercase; margin-bottom: 10px; font-style: italic; }
+        .details { max-height: 0; overflow: hidden; transition: 0.5s; }
+        .service-card.active .details { max-height: 400px; margin-top: 20px; border-top: 1px solid rgba(184, 92, 56, 0.2); padding-top: 15px; }
+        .details li { list-style: none; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+        .details li::before { content: "— "; color: var(--accent); }
+
+        /* --- SESSION BOOKING (REVERTED & FIXED) --- */
+        .booking-passport { max-width: 900px; margin: 0 auto; background: var(--surface); border: 2px solid var(--accent); padding: 60px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
+        .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .form-group label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 900; margin-bottom: 10px; display: block; }
+        .booking-form input, .booking-form select { background: #000; border: 1px solid #33221A; padding: 20px; color: #FFF; font-family: 'Inter'; font-size: 1rem; width: 100%; }
+        .btn-book { grid-column: span 2; background: var(--accent); border: none; padding: 25px; color: #FFF; font-weight: 900; text-transform: uppercase; cursor: pointer; letter-spacing: 5px; font-size: 1.1rem; }
+
+        /* --- MIX CHECK --- */
+        .slider-wrap { max-width: 1100px; margin: 0 auto; position: relative; height: 550px; border-radius: 4px; overflow: hidden; cursor: ew-resize; border: 1px solid #221A16; }
+        .compare-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+        .img-after { background-image: url('images/mix-check-bg.jpg'); } 
+        .img-before { background-image: url('images/mix-check-bg.jpg'); filter: brightness(0.2) grayscale(1) blur(15px); width: 50%; border-right: 2px solid var(--accent); z-index: 2; }
+        .mix-instructions { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10; display: flex; align-items: center; justify-content: center; transition: 0.5s; }
+        .mix-instructions.hidden { opacity: 0; visibility: hidden; }
+        .mix-instructions p { background: #FFF; color: #000; padding: 12px 30px; border-radius: 2px; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* --- THE VIBE (REVERTED BENTO) --- */
+        .vibe-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 350px); gap: 15px; }
+        .vibe-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
+        .item-big { grid-column: span 2; grid-row: span 2; }
+        .item-tall { grid-row: span 2; }
+
+        /* --- THE VISIT (UPGRADED) --- */
+        .visit-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+        .map-frame { height: 500px; border: 2px solid var(--accent); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+
+        @media (max-width: 968px) {
+            .hero, .visit-layout { flex-direction: column; text-align: center; }
+            .visit-layout { grid-template-columns: 1fr; }
+            .logo-img-container { margin: 0 auto 20px; }
+            .booking-form { grid-template-columns: 1fr; }
+            .btn-book { grid-column: span 1; }
+            .vibe-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .item-big, .item-tall { grid-column: span 1; grid-row: span 1; height: 350px; }
+            .action-dock { width: 100%; right: 0; bottom: 0; flex-direction: row; gap: 0; }
+            .btn-float { flex: 1; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-bg"></div>
+
+    <nav>
+        <div class="logo">MONK <span>STUDIOS PRODUCTION</span></div>
+        <div class="nav-links"><a href="#expertise">Craft</a><a href="#booking">Book</a><a href="#mix">Sound</a><a href="#contact">Visit</a></div>
+    </nav>
+
+    <div class="action-dock">
+        <button class="btn-float btn-call" onclick="window.location.href='tel:+917887621520'"><i class="fas fa-phone-alt"></i> CALL</button>
+        <button class="btn-float btn-insta" onclick="window.location.href='https://instagram.com/monkstudiosproduction'"><i class="fab fa-instagram"></i> INSTA</button>
+        <button class="btn-float btn-whatsapp" onclick="window.location.href='https://wa.me/917887621520'"><i class="fab fa-whatsapp"></i> CHAT</button>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="logo-img-container"><img src="logo.png" alt="Logo" class="hero-logo"></div>
+            <p>Nagpur • Indora Square</p>
+            <h1>Monk Studios<br>Production</h1>
+            <p style="color: var(--gray); font-family: 'Inter'; text-transform: none; letter-spacing: 0; font-size: 1.1rem; margin-top: 20px;">Engineering the original vibration for the modern artist. A cinematic hub in Nagpur.</p>
+        </div>
+        <div class="video-reel">
+            <div class="phone-mockup">
+                <video autoplay muted loop playsinline><source src="studio-reel.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+    </header>
+
+    <section id="expertise">
+        <div class="section-header"><p>Mastering The Craft</p><h2>The Expertise</h2></div>
+        <div class="expertise-container">
+            <div class="expertise-category">
+                <h4>Core Production</h4>
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <h3>Recording (Tracking)</h3>
+                    <div class="details"><ul><li>Vocals & Instruments</li><li>Live Bands</li><li>Pro Mics</li><li>Treated Rooms</li></ul></div>
+                </div>
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <h3>Mixing & Mastering</h3>
+                    <div class="details"><ul><li>Levels & Panning</li><li>Effects</li><li>Optimization</li><li>Global Standards</li></ul></div>
+                </div>
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <h3>Editing</h3>
+                    <div class="details"><ul><li>Drum Editing</li><li>Tuning</li><li>Timing Correction</li></ul></div>
+                </div>
+            </div>
+            <div class="expertise-category">
+                <h4>Creative Services</h4>
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <h3>Songwriting & Comp</h3>
+                    <div class="details"><ul><li>Lyrics & Melody</li><li>Demo Production</li><li>Session Musicians</li></ul></div>
+                </div>
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <h3>Arrangement</h3>
+                    <div class="details"><ul><li>Structure</li><li>Instrumentation</li><li>Sound Design</li></ul></div>
+                </div>
+            </div>
+            <div class="expertise-category">
+                <h4>Specialized</h4>
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <h3>Voiceover & Dubbing</h3>
+                    <div class="details"><ul><li>Commercials</li><li>Film & ADR</li><li>Audiobooks</li></ul></div>
+                </div>
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <h3>Podcast & Restoration</h3>
+                    <div class="details"><ul><li>Podcast Production</li><li>Audio Cleaning</li><li>Sound Design</li></ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" style="background: #080605;">
+        <div class="section-header"><p>Reservation</p><h2>Session Booking</h2></div>
+        <div class="booking-passport">
+            <div class="booking-form">
+                <div class="form-group"><label>Artist Name</label><input type="text" id="name" value="" placeholder="Artist Name"></div>
+                <div class="form-group"><label>WhatsApp Number</label><input type="text" id="phone" value="" placeholder="Number"></div>
+                <div class="form-group"><label>Select Service</label>
+                    <select id="srv">
+                        <option value="Recording">Recording (Tracking)</option>
+                        <option value="Mixing">Mixing & Mastering</option>
+                        <option value="Songwriting">Songwriting & Comp</option>
+                        <option value="Podcast">Podcast Production</option>
+                        <option value="Dubbing">Voiceover & Dubbing</option>
+                        <option value="Sound Design">Sound Design</option>
+                        <option value="Restoration">Audio Restoration</option>
+                        <option value="Post-Production">Video Post-Production</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Session Date</label><input type="date" id="dt"></div>
+                <button class="btn-book" onclick="book()">Generate Studio Pass via WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="mix" style="background: #000;">
+        <div class="section-header" style="text-align: center; border: none; padding-left: 0;">
+            <p>Sonic Proof</p><h2>The Mix Check</h2>
+        </div>
+        <div class="slider-wrap" id="slider" onclick="playAud()">
+            <div id="instr" class="mix-instructions"><p>Click to Start & Slide</p></div>
+            <div class="compare-img img-after"></div>
+            <div class="compare-img img-before" id="before"></div>
+        </div>
+    </section>
+
+    <section id="vibe">
+        <div class="section-header"><p>Atmosphere</p><h2>The Vibe</h2></div>
+        <div class="vibe-grid">
+            <div class="vibe-item item-big"><img src="images/image1.jpg"></div>
+            <div class="vibe-item"><img src="images/Choir group.jpeg"></div>
+            <div class="vibe-item"><img src="images/Students.jpg"></div>
+            <div class="vibe-item item-tall"><img src="images/jamming.jpg"></div>
+            <div class="vibe-item"><img src="images/image1.jpg"></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header"><p>Indora Square</p><h2>The Visit</h2></div>
+        <div class="visit-layout">
+            <div>
+                <h3>Nagpur, MH</h3>
+                <p style="margin: 20px 0; color: var(--gray);">📍 Plot no. 684, Sanjay Maidan, Indora Square, Nagpur.</p>
+                <a href="https://share.google/FdPBjgS6RQTQTwG1q" target="_blank" style="background: var(--accent); color: white; padding: 15px 40px; font-weight: 900; display: inline-block;">GET DIRECTIONS →</a>
+            </div>
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.217354153066!2d79.09105437604515!3d21.183515982449516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28062f830fcc9d%3A0x9d4b9f8fd0a79d4b!2sIndora%20Square%2C%20Nagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 100px 8%; text-align: center; color: var(--accent); font-size: 0.75rem; text-transform: uppercase;">
+        <p>© 2026 Monk Studios Production team. Nagpur.</p>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const before = document.getElementById('before');
+        let raw = new Audio('raw.mp3'), master = new Audio('master.mp3'), playing = false;
+
+        function playAud() {
+            if(!playing) { raw.play(); master.play(); master.muted = true; playing = true; document.getElementById('instr').classList.add('hidden'); }
+            else { raw.pause(); master.pause(); playing = false; }
+        }
+
+        slider.addEventListener('mousemove', (e) => {
+            let rect = slider.getBoundingClientRect();
+            let p = ((e.clientX - rect.left) / rect.width) * 100;
+            before.style.width = p + '%';
+            if (playing) { raw.muted = (p >= 50); master.muted = (p < 50); }
+        });
+
+        function book() {
+            const m = `Booking Inquiry for Monk Studios Production team:\n- Artist: ${document.getElementById('name').value}\n- Service: ${document.getElementById('srv').value}\n- Date: ${document.getElementById('dt').value}`;
+            window.open(`https://wa.me/917887621520?text=${encodeURIComponent(m)}`);
+        }
+    </script>
+</body>
+</html>
