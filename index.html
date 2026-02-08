@@ -22,7 +22,7 @@
 
         .site-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(5, 4, 3, 0.9), rgba(5, 4, 3, 0.7)), 
+            background: linear-gradient(rgba(5, 4, 3, 0.92), rgba(5, 4, 3, 0.7)), 
                         url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=2070&q=80');
             background-size: cover; background-position: center; z-index: -2;
         }
@@ -55,9 +55,22 @@
         .hero-content h1 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; line-height: 1; margin-bottom: 25px; }
         .hero-content p { font-size: 0.85rem; color: var(--accent); letter-spacing: 5px; text-transform: uppercase; font-weight: 900; }
 
-        /* FIXED VIDEO SIZE */
-        .phone-mockup { width: 300px; height: 600px; border: 15px solid #1A120F; border-radius: 45px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.9); flex-shrink: 0; }
-        .phone-mockup video { width: 100%; height: 100%; object-fit: cover; }
+        /* HERO VIDEO FIX */
+        .phone-mockup { 
+            width: 320px; 
+            aspect-ratio: 9 / 18; /* Perfect vertical phone ratio */
+            border: 12px solid #1A120F; 
+            border-radius: 45px; 
+            overflow: hidden; 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.9); 
+            flex-shrink: 0; 
+            background: #000;
+        }
+        .phone-mockup video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* This ensures the video fills the frame completely */
+        }
 
         /* --- THE EXPERTISE (FULL 13+ SERVICES) --- */
         section { padding: 100px 8%; position: relative; }
@@ -67,13 +80,11 @@
         .expertise-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .expertise-category h4 { color: var(--accent); font-size: 1.1rem; margin-bottom: 30px; letter-spacing: 3px; text-transform: uppercase; border-bottom: 1px solid rgba(184, 92, 56, 0.2); padding-bottom: 15px; }
         .service-card { background: var(--surface); padding: 35px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
-        .service-card:hover { border-color: var(--accent); background: #1C1411; }
         .service-card h3 { font-size: 1.3rem; color: var(--accent-light); text-transform: uppercase; margin-bottom: 12px; font-style: italic; }
         
         .details { max-height: 0; overflow: hidden; transition: 0.5s ease; }
         .service-card.active .details { max-height: 500px; margin-top: 20px; border-top: 1px solid rgba(184, 92, 56, 0.2); padding-top: 15px; }
         .details li { list-style: none; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; color: #FFF; }
-        .details li::before { content: "— "; color: var(--accent); }
 
         /* --- BOOKING --- */
         .booking-passport { max-width: 900px; margin: 0 auto; background: var(--surface); border: 2px solid var(--accent); padding: 50px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
@@ -91,8 +102,9 @@
         .mix-instructions.hidden { opacity: 0; visibility: hidden; }
         .mix-instructions p { background: #FFF; color: #000; padding: 15px 40px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; }
 
-        /* --- VIBE --- */
+        /* --- VIBE GRID FIX --- */
         .vibe-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 350px); gap: 20px; }
+        .vibe-item { width: 100%; height: 100%; overflow: hidden; }
         .vibe-item img { width: 100%; height: 100%; object-fit: cover; }
         .item-big { grid-column: span 2; grid-row: span 2; }
         .item-tall { grid-row: span 2; }
@@ -101,14 +113,24 @@
         .visit-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
         .map-frame { height: 500px; border: 2px solid var(--accent); overflow: hidden; }
 
+        /* MOBILE OVERRIDES */
         @media (max-width: 968px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 140px; }
-            .phone-mockup { width: 260px; height: 520px; }
+            .hero { flex-direction: column; text-align: center; padding-top: 140px; gap: 30px; }
+            .phone-mockup { 
+                width: 100%; 
+                max-width: 280px; 
+                height: 500px; 
+                margin: 0 auto; 
+            }
             .expertise-container, .booking-form, .visit-layout { grid-template-columns: 1fr; }
             .btn-book { grid-column: span 1; }
             .slider-wrap { height: 400px; }
+            
+            /* FORCE ALL IMAGES TO SHOW ON MOBILE */
             .vibe-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .item-big, .item-tall { height: 350px; }
+            .vibe-item { height: 350px; } 
+            .item-big, .item-tall { grid-column: span 1; grid-row: span 1; }
+            
             .action-dock { width: 100%; right: 0; bottom: 0; flex-direction: row; gap: 0; }
             .btn-float { flex: 1; border-radius: 0; padding: 25px 10px; font-size: 0.7rem; }
         }
@@ -137,7 +159,7 @@
             <img src="logo.png" alt="Logo" class="hero-logo">
             <p>Nagpur • Indora Square</p>
             <h1>Monk Studios<br>Production</h1>
-            <p style="color: var(--gray); text-transform: none; letter-spacing: 0; font-size: 1.1rem; margin-top: 25px; max-width: 550px;">The original vibration of Indora Square. Engineering professional sonic stories for the modern artist.</p>
+            <p style="color: var(--gray); font-size: 1.1rem; margin-top: 25px;">The original vibration of Indora Square. Engineering professional sonic stories.</p>
         </div>
         <div class="video-reel">
             <div class="phone-mockup">
@@ -153,11 +175,11 @@
                 <h4>Core Production</h4>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Recording (Tracking)</h3>
-                    <div class="details"><ul><li>Vocals & Live Bands</li><li>Instruments</li><li>Professional Microphones</li><li>Acoustic Rooms</li></ul></div>
+                    <div class="details"><ul><li>Vocals & Live Bands</li><li>Professional Microphones</li><li>Acoustic Rooms</li></ul></div>
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Mixing & Mastering</h3>
-                    <div class="details"><ul><li>Level Balancing</li><li>Panning & Effects</li><li>Platform Optimization</li><li>Consistent Sonic Identity</li></ul></div>
+                    <div class="details"><ul><li>Level Balancing</li><li>Panning & Effects</li><li>Platform Optimization</li></ul></div>
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Editing & Tuning</h3>
@@ -168,7 +190,7 @@
                 <h4>Creative Services</h4>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Songwriting & Comp</h3>
-                    <div class="details"><ul><li>Lyrics & Melodies</li><li>Structure & Demo Prod</li><li>Session Musicians</li></ul></div>
+                    <div class="details"><ul><li>Lyrics & Melodies</li><li>Structure Development</li><li>Demo Production</li></ul></div>
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Arrangement</h3>
@@ -183,7 +205,7 @@
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Podcast & Post</h3>
-                    <div class="details"><ul><li>Podcast Production</li><li>Sound Design FX</li><li>Audio Restoration</li><li>Video Sync</li></ul></div>
+                    <div class="details"><ul><li>Podcast Production</li><li>Audio Restoration</li><li>Video Sync</li></ul></div>
                 </div>
             </div>
         </div>
@@ -193,8 +215,8 @@
         <div class="section-header"><p>Reserve Vibration</p><h2>Session Booking</h2></div>
         <div class="booking-passport">
             <div class="booking-form">
-                <div class="form-group"><label>Artist Name</label><input type="text" id="name" value="" placeholder="Artist Name"></div>
-                <div class="form-group"><label>WhatsApp Number</label><input type="text" id="phone" value="" placeholder="Mobile Number"></div>
+                <div class="form-group"><label>Artist Name</label><input type="text" id="name" placeholder="Artist Name"></div>
+                <div class="form-group"><label>WhatsApp Number</label><input type="text" id="phone" placeholder="Mobile Number"></div>
                 <div class="form-group"><label>Service Required</label>
                     <select id="srv">
                         <option>Recording (Tracking)</option>
@@ -202,18 +224,18 @@
                         <option>Songwriting & Comp</option>
                         <option>Voiceover & Dubbing</option>
                         <option>Podcast Production</option>
-                        <option>Sound Design</option>
-                        <option>Video Post-Production</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Preferred Date</label><input type="date" id="dt"></div>
+                <div class="form-group"><label>Date</label><input type="date" id="dt"></div>
                 <button class="btn-book" onclick="book()">Generate Studio Pass via WhatsApp</button>
             </div>
         </div>
     </section>
 
     <section id="mix" style="background: #000;">
-        <div class="section-header" style="text-align: center; border: none; padding-left: 0;"><p>Sonic Quality</p><h2>The Mix Check</h2></div>
+        <div class="section-header" style="text-align: center; border: none; padding-left: 0;">
+            <p>Sonic Quality</p><h2>The Mix Check</h2>
+        </div>
         <div class="slider-wrap" id="slider" onclick="startExperience()">
             <div id="instr" class="mix-instructions"><p>Click to Start & Slide</p></div>
             <div class="compare-img img-after"></div>
@@ -224,11 +246,11 @@
     <section id="vibe">
         <div class="section-header"><p>The Atmosphere</p><h2>The Vibe</h2></div>
         <div class="vibe-grid">
-            <div class="vibe-item item-big"><img src="images/image1.jpg"></div>
-            <div class="vibe-item"><img src="images/Choir group.jpeg"></div>
-            <div class="vibe-item"><img src="images/Students.jpg"></div>
-            <div class="vibe-item item-tall"><img src="images/jamming.jpg"></div>
-            <div class="vibe-item"><img src="images/image1.jpg"></div>
+            <div class="vibe-item item-big"><img src="images/image1.jpg" alt="Recording Area"></div>
+            <div class="vibe-item"><img src="images/Choir group.jpeg" alt="Choir Group"></div>
+            <div class="vibe-item"><img src="images/Students.jpg" alt="Production Session"></div>
+            <div class="vibe-item item-tall"><img src="images/jamming.jpg" alt="Jamming Session"></div>
+            <div class="vibe-item"><img src="images/image1.jpg" alt="Studio Setup"></div>
         </div>
     </section>
 
@@ -236,11 +258,11 @@
         <div class="section-header"><p>Find Us</p><h2>The Visit</h2></div>
         <div class="visit-layout">
             <div>
-                <p style="color: var(--gray); font-size: 1.2rem; margin-bottom: 25px;">📍 Plot no. 684, Sanjay Maidan, Indora Square, Nagpur, MH 440014.</p>
+                <p style="color: var(--gray); font-size: 1.2rem; margin-bottom: 25px;">📍 Plot no. 684, Sanjay Maidan, Indora Square, Nagpur, MH.</p>
                 <a href="https://share.google/FdPBjgS6RQTQTwG1q" target="_blank" style="background: var(--accent); color: white; padding: 18px 45px; font-weight: 900; display: inline-block;">GET DIRECTIONS</a>
             </div>
             <div class="map-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.395156641525!2d79.0886518115682!3d21.1764654823903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c126fd0fcf19%3A0x848b8f8f6947599d!2sIndora%20Square%2C%20Nagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.654876616464!2d79.0888204753041!3d21.166133280519393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0e64c192661%3A0x88f6c38f49896688!2sIndora%20Square%2C%20Nagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1707000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
