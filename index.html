@@ -27,6 +27,12 @@
             background-size: cover; background-position: center; z-index: -2;
         }
 
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.1; pointer-events: none; z-index: 10000;
+        }
+
         h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
 
         /* --- NAVIGATION --- */
@@ -39,7 +45,7 @@
         .logo-wrap { display: flex; flex-direction: column; }
         .logo { font-weight: 900; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); line-height: 1; }
         .tagline { font-family: 'Inter'; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gray); margin-top: 5px; font-weight: 700; }
-        .nav-links { display: flex; gap: 25px; font-size: 0.7rem; text-transform: uppercase; font-weight: 900; }
+        .nav-links { display: flex; gap: 20px; font-size: 0.65rem; text-transform: uppercase; font-weight: 900; }
 
         /* --- ACTIONS --- */
         .action-dock { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
@@ -49,90 +55,113 @@
         .btn-insta { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: #fff; }
 
         /* --- HERO --- */
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 120px 8% 80px; gap: 50px; }
-        .hero-content { flex: 1.2; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 120px 8% 80px; gap: 50px; position: relative; }
+        .hero-content { flex: 1.2; z-index: 10; }
         .hero-logo { width: 100%; max-width: 220px; margin-bottom: 30px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8)); }
         .hero-content h1 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; line-height: 1; margin-bottom: 25px; }
         .hero-content p { font-size: 0.85rem; color: var(--accent); letter-spacing: 5px; text-transform: uppercase; font-weight: 900; }
 
-        /* HERO VIDEO FIX */
         .phone-mockup { 
-            width: 320px; 
-            aspect-ratio: 9 / 18; /* Perfect vertical phone ratio */
-            border: 12px solid #1A120F; 
-            border-radius: 45px; 
-            overflow: hidden; 
-            box-shadow: 0 40px 80px rgba(0,0,0,0.9); 
-            flex-shrink: 0; 
-            background: #000;
+            width: 320px; aspect-ratio: 9/18; border: 12px solid #1A120F; border-radius: 45px; 
+            overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.9); flex-shrink: 0; background: #000;
         }
-        .phone-mockup video { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; /* This ensures the video fills the frame completely */
-        }
+        .phone-mockup video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- THE EXPERTISE (FULL 13+ SERVICES) --- */
+        /* MASSIVE PULSE ENGINE */
+        .visualizer-container {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 380px;
+            display: flex; align-items: flex-end; justify-content: center; gap: 6px;
+            opacity: 0.4; pointer-events: none; z-index: 1;
+        }
+        .wave-bar { 
+            width: 5px; background: linear-gradient(to top, var(--accent), var(--accent-light)); 
+            border-radius: 4px 4px 0 0; animation: sound-wave 1.2s ease-in-out infinite; 
+            transform-origin: bottom; box-shadow: 0 0 15px rgba(184, 92, 56, 0.4);
+        }
+        @keyframes sound-wave { 0%, 100% { transform: scaleY(0.2); filter: brightness(0.8); } 50% { transform: scaleY(1); filter: brightness(1.2); } }
+
+        /* --- SECTIONS --- */
         section { padding: 100px 8%; position: relative; }
         .section-header { text-align: left; margin-bottom: 60px; border-left: 6px solid var(--accent); padding-left: 25px; }
         .section-header h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; line-height: 1; margin-bottom: 10px; }
         
+        /* --- EXPERTISE --- */
         .expertise-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .expertise-category h4 { color: var(--accent); font-size: 1.1rem; margin-bottom: 30px; letter-spacing: 3px; text-transform: uppercase; border-bottom: 1px solid rgba(184, 92, 56, 0.2); padding-bottom: 15px; }
         .service-card { background: var(--surface); padding: 35px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
         .service-card h3 { font-size: 1.3rem; color: var(--accent-light); text-transform: uppercase; margin-bottom: 12px; font-style: italic; }
-        
         .details { max-height: 0; overflow: hidden; transition: 0.5s ease; }
         .service-card.active .details { max-height: 500px; margin-top: 20px; border-top: 1px solid rgba(184, 92, 56, 0.2); padding-top: 15px; }
         .details li { list-style: none; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; color: #FFF; }
 
+        /* --- OFFERS SECTION WITH FLOATING HEARTS --- */
+        .offers-grid { max-width: 900px; margin: 0 auto; }
+        .offer-card { 
+            background: linear-gradient(135deg, var(--surface) 0%, #1c1411 100%); 
+            border: 2px dashed var(--accent); padding: 60px 40px; text-align: center; 
+            border-radius: 4px; position: relative; overflow: hidden;
+        }
+        /* Layering for text readability */
+        .offer-content-layer { position: relative; z-index: 10; }
+        
+        .offer-badge { 
+            position: absolute; top: 30px; right: -35px; background: var(--accent); 
+            color: white; padding: 5px 40px; transform: rotate(45deg); 
+            font-size: 0.6rem; font-weight: 900; letter-spacing: 3px; z-index: 11;
+        }
+        .offer-card h3 { font-size: 2.8rem; color: var(--accent-light); margin-bottom: 15px; font-style: italic; }
+        .offer-card p { font-size: 1.1rem; color: var(--text); margin-bottom: 30px; }
+        .offer-expiry { color: var(--accent); font-weight: 900; font-size: 0.75rem; letter-spacing: 3px; }
+
+        /* Hearts Animation Styles */
+        .hearts-bg-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 1; }
+        .floating-heart { position: absolute; bottom: -30px; color: var(--accent); opacity: 0; animation: floatUp 5s linear infinite; }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+            20% { opacity: 0.4; } /* Low opacity so text is readable */
+            80% { opacity: 0.2; }
+            100% { transform: translateY(-450px) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* --- REVIEWS --- */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .review-card { background: var(--surface); padding: 40px; border-bottom: 4px solid var(--accent); position: relative; }
+        .quote-icon { font-size: 3rem; color: var(--accent); font-family: 'Playfair Display'; opacity: 0.3; line-height: 1; }
+        .review-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-style: italic; margin: 15px 0; color: var(--text); }
+        .review-author { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 900; }
+
         /* --- BOOKING --- */
-        .booking-passport { max-width: 900px; margin: 0 auto; background: var(--surface); border: 2px solid var(--accent); padding: 50px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
-        .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .form-group label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 900; margin-bottom: 10px; display: block; }
+        .booking-passport { max-width: 900px; margin: 0 auto; background: var(--surface); border: 2px solid var(--accent); padding: 60px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
+        .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .form-group label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 900; margin-bottom: 10px; display: block; }
         .booking-form input, .booking-form select { background: #000; border: 1px solid #33221A; padding: 20px; color: #FFF; font-family: 'Inter'; font-size: 1rem; width: 100%; border-radius: 0; }
         .btn-book { grid-column: span 2; background: var(--accent); border: none; padding: 25px; color: #FFF; font-weight: 900; text-transform: uppercase; cursor: pointer; letter-spacing: 5px; font-size: 1.1rem; }
 
-        /* --- MIX CHECK (FIXED IMAGE FIT) --- */
+        /* --- MIX CHECK --- */
         .slider-wrap { max-width: 1100px; margin: 0 auto; position: relative; height: 600px; border: 2px solid #1A120F; overflow: hidden; cursor: ew-resize; }
         .compare-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; }
         .img-after { background-image: url('images/mix-check-bg.jpg'); } 
         .img-before { background-image: url('images/mix-check-bg.jpg'); filter: brightness(0.2) grayscale(1) blur(20px); width: 50%; border-right: 3px solid var(--accent); z-index: 2; }
-        .mix-instructions { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 10; display: flex; align-items: center; justify-content: center; transition: 0.5s; pointer-events: none; }
-        .mix-instructions.hidden { opacity: 0; visibility: hidden; }
-        .mix-instructions p { background: #FFF; color: #000; padding: 15px 40px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; }
 
-        /* --- VIBE GRID FIX --- */
+        /* --- VIBE --- */
         .vibe-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 350px); gap: 20px; }
-        .vibe-item { width: 100%; height: 100%; overflow: hidden; }
         .vibe-item img { width: 100%; height: 100%; object-fit: cover; }
         .item-big { grid-column: span 2; grid-row: span 2; }
         .item-tall { grid-row: span 2; }
 
         /* --- VISIT --- */
-        .visit-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
-        .map-frame { height: 500px; border: 2px solid var(--accent); overflow: hidden; }
+        .visit-layout { max-width: 800px; margin: 0 auto; background: var(--surface); padding: 50px; border-left: 4px solid var(--accent); }
+        .btn-directions { background: var(--accent); color: white; padding: 18px 45px; font-weight: 900; display: inline-block; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; text-decoration: none; cursor: pointer; }
 
-        /* MOBILE OVERRIDES */
         @media (max-width: 968px) {
             .hero { flex-direction: column; text-align: center; padding-top: 140px; gap: 30px; }
-            .phone-mockup { 
-                width: 100%; 
-                max-width: 280px; 
-                height: 500px; 
-                margin: 0 auto; 
-            }
-            .expertise-container, .booking-form, .visit-layout { grid-template-columns: 1fr; }
-            .btn-book { grid-column: span 1; }
-            .slider-wrap { height: 400px; }
-            
-            /* FORCE ALL IMAGES TO SHOW ON MOBILE */
+            .phone-mockup { width: 100%; max-width: 280px; height: 500px; margin: 0 auto; }
+            .expertise-container, .booking-form, .reviews-grid { grid-template-columns: 1fr; }
             .vibe-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .vibe-item { height: 350px; } 
-            .item-big, .item-tall { grid-column: span 1; grid-row: span 1; }
-            
+            .vibe-item { height: 350px; grid-column: span 1 !important; grid-row: span 1 !important; }
             .action-dock { width: 100%; right: 0; bottom: 0; flex-direction: row; gap: 0; }
             .btn-float { flex: 1; border-radius: 0; padding: 25px 10px; font-size: 0.7rem; }
+            .booking-passport { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -145,12 +174,12 @@
             <div class="logo">MONK <span>STUDIOS PRODUCTION</span></div>
             <div class="tagline">From Vision To Vibration</div>
         </div>
-        <div class="nav-links"><a href="#expertise">Craft</a><a href="#booking">Book</a><a href="#mix">Sound</a><a href="#contact">Visit</a></div>
+        <div class="nav-links"><a href="#expertise">Craft</a><a href="#offers">Offers</a><a href="#reviews">Vibe</a><a href="#booking">Book</a><a href="#contact">Visit</a></div>
     </nav>
 
     <div class="action-dock">
         <button class="btn-float btn-call" onclick="window.location.href='tel:+917887621520'"><i class="fas fa-phone-alt"></i> CALL</button>
-        <button class="btn-float btn-insta" onclick="window.location.href='https://instagram.com/monkstudiosproduction'"><i class="fab fa-instagram"></i> INSTA</button>
+        <button class="btn-float btn-insta" onclick="window.location.href='https://www.instagram.com/monkstudiosproduction/'"><i class="fab fa-instagram"></i> INSTA</button>
         <button class="btn-float btn-whatsapp" onclick="window.location.href='https://wa.me/917887621520'"><i class="fab fa-whatsapp"></i> CHAT</button>
     </div>
 
@@ -159,8 +188,9 @@
             <img src="logo.png" alt="Logo" class="hero-logo">
             <p>Nagpur • Indora Square</p>
             <h1>Monk Studios<br>Production</h1>
-            <p style="color: var(--gray); font-size: 1.1rem; margin-top: 25px;">The original vibration of Indora Square. Engineering professional sonic stories.</p>
+            <p style="color: var(--gray); font-size: 1.1rem; margin-top: 25px;">Engineering professional sonic stories for the modern artist.</p>
         </div>
+        <div id="visualizer" class="visualizer-container"></div>
         <div class="video-reel">
             <div class="phone-mockup">
                 <video autoplay muted loop playsinline><source src="studio-reel.mp4" type="video/mp4"></video>
@@ -169,44 +199,89 @@
     </header>
 
     <section id="expertise">
-        <div class="section-header"><p>Professional Services</p><h2>The Expertise</h2></div>
+        <div class="section-header"><p>Mastering The Craft</p><h2>The Expertise</h2></div>
         <div class="expertise-container">
             <div class="expertise-category">
                 <h4>Core Production</h4>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Recording (Tracking)</h3>
-                    <div class="details"><ul><li>Vocals & Live Bands</li><li>Professional Microphones</li><li>Acoustic Rooms</li></ul></div>
+                    <div class="details"><ul><li>Vocals & Instruments</li><li>Live Bands</li><li>Pro Signal Chain</li></ul></div>
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Mixing & Mastering</h3>
-                    <div class="details"><ul><li>Level Balancing</li><li>Panning & Effects</li><li>Platform Optimization</li></ul></div>
+                    <div class="details"><ul><li>Analog Warmth</li><li>Platform Optimization</li><li>Stereo Imaging</li></ul></div>
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Editing & Tuning</h3>
-                    <div class="details"><ul><li>Drum Editing</li><li>Vocal Tuning</li><li>Timing Correction</li></ul></div>
+                    <div class="details"><ul><li>Drum Alignment</li><li>Vocal Tuning</li><li>Phase Correction</li></ul></div>
                 </div>
             </div>
             <div class="expertise-category">
                 <h4>Creative Services</h4>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Songwriting & Comp</h3>
-                    <div class="details"><ul><li>Lyrics & Melodies</li><li>Structure Development</li><li>Demo Production</li></ul></div>
+                    <div class="details"><ul><li>Melody Composition</li><li>Lyrics Development</li><li>Arrangement Theory</li></ul></div>
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
-                    <h3>Arrangement</h3>
-                    <div class="details"><ul><li>Instrumentation</li><li>Sound Design Layers</li><li>Genre Shaping</li></ul></div>
+                    <h3>Session Musicians</h3>
+                    <div class="details"><ul><li>Professional Keys</li><li>Guitar Layers</li><li>Live Percussion</li></ul></div>
                 </div>
             </div>
             <div class="expertise-category">
                 <h4>Specialized Audio</h4>
                 <div class="service-card" onclick="this.classList.toggle('active')">
-                    <h3>VO & Dubbing</h3>
-                    <div class="details"><ul><li>Commercials & Film</li><li>Audiobooks</li><li>ADR Recording</li></ul></div>
+                    <h3>Voiceover & Dubbing</h3>
+                    <div class="details"><ul><li>Film ADR</li><li>Commercial VO</li><li>Audiobooks</li></ul></div>
                 </div>
                 <div class="service-card" onclick="this.classList.toggle('active')">
                     <h3>Podcast & Post</h3>
-                    <div class="details"><ul><li>Podcast Production</li><li>Audio Restoration</li><li>Video Sync</li></ul></div>
+                    <div class="details"><ul><li>Dialogue Editing</li><li>Noise Removal</li><li>Video Sync</li></ul></div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" style="background: #0a0706;">
+        <div class="section-header"><p>Limited Time</p><h2>Special Offers</h2></div>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="hearts-bg-container">
+                    <i class="fas fa-heart floating-heart" style="left: 10%; animation-delay: 0s; font-size: 1.2rem;"></i>
+                    <i class="fas fa-heart floating-heart" style="left: 25%; animation-delay: 2s; font-size: 1.5rem;"></i>
+                    <i class="fas fa-heart floating-heart" style="left: 40%; animation-delay: 1s; font-size: 1rem;"></i>
+                    <i class="fas fa-heart floating-heart" style="left: 55%; animation-delay: 3.5s; font-size: 1.8rem;"></i>
+                    <i class="fas fa-heart floating-heart" style="left: 70%; animation-delay: 0.5s; font-size: 1.3rem;"></i>
+                    <i class="fas fa-heart floating-heart" style="left: 85%; animation-delay: 2.5s; font-size: 1.1rem;"></i>
+                </div>
+
+                <div class="offer-content-layer">
+                    <div class="offer-badge">LTD TIME</div>
+                    <h3>Valentine's Special</h3>
+                    <p>Record your dedication. 20% Off on Vocal Tracking and Mixing for all tribute tracks and personalized gifts.</p>
+                    <p class="offer-expiry">VALID UNTIL FEBRUARY 14TH</p>
+                    <a href="https://wa.me/917887621520?text=I'm%20interested%20in%20the%20Valentine's%20Week%20Offer" class="btn-directions" style="margin-top: 30px;">CLAIM OFFER NOW →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <div class="section-header"><p>The Feedback</p><h2>Client Reviews</h2></div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p class="quote-icon">“</p>
+                <p class="review-text">The clarity and warmth Monk Studios Production team brings to a mix is world-class. Best experience in Nagpur.</p>
+                <p class="review-author">— Indie Artist</p>
+            </div>
+            <div class="review-card">
+                <p class="quote-icon">“</p>
+                <p class="review-text">Professional, cinematic, and soulful. They handled our film's ADR with incredible precision.</p>
+                <p class="review-author">— Film Director</p>
+            </div>
+            <div class="review-card">
+                <p class="quote-icon">“</p>
+                <p class="review-text">Best vocal tracking in the city. The vibe at the Indora Square studio is unmatched.</p>
+                <p class="review-author">— Rapper & Lyricist</p>
             </div>
         </div>
     </section>
@@ -215,27 +290,25 @@
         <div class="section-header"><p>Reserve Vibration</p><h2>Session Booking</h2></div>
         <div class="booking-passport">
             <div class="booking-form">
-                <div class="form-group"><label>Artist Name</label><input type="text" id="name" placeholder="Artist Name"></div>
-                <div class="form-group"><label>WhatsApp Number</label><input type="text" id="phone" placeholder="Mobile Number"></div>
+                <div class="form-group"><label>Artist Name</label><input type="text" id="name" value="" placeholder="Artist Name"></div>
+                <div class="form-group"><label>WhatsApp Number</label><input type="text" id="phone" value="" placeholder="Mobile Number"></div>
                 <div class="form-group"><label>Service Required</label>
                     <select id="srv">
                         <option>Recording (Tracking)</option>
                         <option>Mixing & Mastering</option>
                         <option>Songwriting & Comp</option>
-                        <option>Voiceover & Dubbing</option>
-                        <option>Podcast Production</option>
+                        <option>Podcast / Dubbing</option>
+                        <option>Video Post-Production</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Date</label><input type="date" id="dt"></div>
+                <div class="form-group"><label>Preferred Date</label><input type="date" id="dt"></div>
                 <button class="btn-book" onclick="book()">Generate Studio Pass via WhatsApp</button>
             </div>
         </div>
     </section>
 
     <section id="mix" style="background: #000;">
-        <div class="section-header" style="text-align: center; border: none; padding-left: 0;">
-            <p>Sonic Quality</p><h2>The Mix Check</h2>
-        </div>
+        <div class="section-header" style="text-align: center; border: none; padding-left: 0;"><p>Sonic Quality</p><h2>The Mix Check</h2></div>
         <div class="slider-wrap" id="slider" onclick="startExperience()">
             <div id="instr" class="mix-instructions"><p>Click to Start & Slide</p></div>
             <div class="compare-img img-after"></div>
@@ -244,7 +317,7 @@
     </section>
 
     <section id="vibe">
-        <div class="section-header"><p>The Atmosphere</p><h2>The Vibe</h2></div>
+        <div class="section-header"><p>Atmosphere</p><h2>The Vibe</h2></div>
         <div class="vibe-grid">
             <div class="vibe-item item-big"><img src="images/image1.jpg" alt="Recording Area"></div>
             <div class="vibe-item"><img src="images/Choir group.jpeg" alt="Choir Group"></div>
@@ -257,21 +330,31 @@
     <section id="contact">
         <div class="section-header"><p>Find Us</p><h2>The Visit</h2></div>
         <div class="visit-layout">
-            <div>
-                <p style="color: var(--gray); font-size: 1.2rem; margin-bottom: 25px;">📍 Plot no. 684, Sanjay Maidan, Indora Square, Nagpur, MH.</p>
-                <a href="https://share.google/FdPBjgS6RQTQTwG1q" target="_blank" style="background: var(--accent); color: white; padding: 18px 45px; font-weight: 900; display: inline-block;">GET DIRECTIONS</a>
-            </div>
-            <div class="map-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.654876616464!2d79.0888204753041!3d21.166133280519393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0e64c192661%3A0x88f6c38f49896688!2sIndora%20Square%2C%20Nagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1707000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 2rem;">Indora Square Studio</h3>
+            <p style="color: var(--gray); font-size: 1.2rem; margin-bottom: 25px;">📍 Plot no. 684, Sanjay Maidan, Indora Square, Nagpur, MH 440014.</p>
+            <a href="https://share.google/PUE6q8AbdWY5I1neL" target="_blank" class="btn-directions">GET DIRECTIONS ON GOOGLE MAPS →</a>
         </div>
     </section>
 
-    <footer style="padding: 100px 8%; text-align: center; color: var(--accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;">
+    <footer style="padding: 100px 8%; text-align: center; color: var(--accent); font-size: 0.75rem; text-transform: uppercase;">
         <p>© 2026 Monk Studios Production team. Nagpur.</p>
     </footer>
 
     <script>
+        const visualizer = document.getElementById('visualizer');
+        const barCount = 75;
+        for (let i = 0; i < barCount; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'wave-bar';
+            const randomHeight = Math.random() * 250 + 50;
+            const randomDelay = Math.random() * -2;
+            const randomDuration = 0.8 + Math.random() * 1;
+            bar.style.height = `${randomHeight}px`;
+            bar.style.animationDelay = `${randomDelay}s`;
+            bar.style.animationDuration = `${randomDuration}s`;
+            visualizer.appendChild(bar);
+        }
+
         const slider = document.getElementById('slider'), before = document.getElementById('before'), instr = document.getElementById('instr');
         let raw = new Audio('raw.mp3'), master = new Audio('master.mp3'), playing = false;
 
