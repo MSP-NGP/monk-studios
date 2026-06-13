@@ -46,6 +46,8 @@
         .logo { font-weight: 900; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); line-height: 1; }
         .tagline { font-family: 'Inter'; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gray); margin-top: 5px; font-weight: 700; }
         .nav-links { display: flex; gap: 20px; font-size: 0.65rem; text-transform: uppercase; font-weight: 900; }
+        .nav-links a { color: var(--text); text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-light); }
 
         /* --- ACTIONS --- */
         .action-dock { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
@@ -94,34 +96,31 @@
         .service-card.active .details { max-height: 500px; margin-top: 20px; border-top: 1px solid rgba(184, 92, 56, 0.2); padding-top: 15px; }
         .details li { list-style: none; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; color: #FFF; }
 
-        /* --- OFFERS SECTION WITH FLOATING HEARTS --- */
+        /* --- OFFERS SECTION REWORKED --- */
         .offers-grid { max-width: 900px; margin: 0 auto; }
         .offer-card { 
             background: linear-gradient(135deg, var(--surface) 0%, #1c1411 100%); 
             border: 2px dashed var(--accent); padding: 60px 40px; text-align: center; 
             border-radius: 4px; position: relative; overflow: hidden;
         }
-        /* Layering for text readability */
         .offer-content-layer { position: relative; z-index: 10; }
-        
         .offer-badge { 
             position: absolute; top: 30px; right: -35px; background: var(--accent); 
             color: white; padding: 5px 40px; transform: rotate(45deg); 
             font-size: 0.6rem; font-weight: 900; letter-spacing: 3px; z-index: 11;
         }
-        .offer-card h3 { font-size: 2.8rem; color: var(--accent-light); margin-bottom: 15px; font-style: italic; }
-        .offer-card p { font-size: 1.1rem; color: var(--text); margin-bottom: 30px; }
-        .offer-expiry { color: var(--accent); font-weight: 900; font-size: 0.75rem; letter-spacing: 3px; }
-
-        /* Hearts Animation Styles */
-        .hearts-bg-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 1; }
-        .floating-heart { position: absolute; bottom: -30px; color: var(--accent); opacity: 0; animation: floatUp 5s linear infinite; }
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
-            20% { opacity: 0.4; } /* Low opacity so text is readable */
-            80% { opacity: 0.2; }
-            100% { transform: translateY(-450px) rotate(360deg) scale(1.2); opacity: 0; }
+        .offer-card h3 { font-size: 2.8rem; color: var(--accent-light); margin-bottom: 5px; font-style: italic; text-transform: uppercase; }
+        .offer-subtitle { color: var(--accent-light); font-size: 1.1rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .offer-details-list { 
+            list-style: none; padding: 0; margin: 0 auto 30px auto; max-width: 550px; 
+            text-align: left; font-size: 0.95rem; line-height: 1.8; color: var(--text);
         }
+        .offer-details-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+        .offer-details-list li i { color: var(--accent); margin-top: 4px; }
+        .offer-details-list li strong { color: var(--accent-light); }
+
+        .offer-expiry { color: var(--accent); font-weight: 900; font-size: 0.75rem; letter-spacing: 3px; margin-top: 20px; }
 
         /* --- REVIEWS --- */
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -142,6 +141,8 @@
         .compare-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; }
         .img-after { background-image: url('images/mix-check-bg.jpg'); } 
         .img-before { background-image: url('images/mix-check-bg.jpg'); filter: brightness(0.2) grayscale(1) blur(20px); width: 50%; border-right: 3px solid var(--accent); z-index: 2; }
+        .mix-instructions { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; color: #fff; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; background: rgba(0,0,0,0.7); padding: 15px 30px; border-radius: 4px; pointer-events: none; transition: 0.3s; }
+        .mix-instructions.hidden { opacity: 0; pointer-events: none; }
 
         /* --- VIBE --- */
         .vibe-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 350px); gap: 20px; }
@@ -151,7 +152,8 @@
 
         /* --- VISIT --- */
         .visit-layout { max-width: 800px; margin: 0 auto; background: var(--surface); padding: 50px; border-left: 4px solid var(--accent); }
-        .btn-directions { background: var(--accent); color: white; padding: 18px 45px; font-weight: 900; display: inline-block; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; text-decoration: none; cursor: pointer; }
+        .btn-directions { background: var(--accent); color: white; padding: 18px 45px; font-weight: 900; display: inline-block; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; text-decoration: none; cursor: pointer; transition: 0.3s; text-align: center; }
+        .btn-directions:hover { background: var(--accent-light); color: #000; }
 
         @media (max-width: 968px) {
             .hero { flex-direction: column; text-align: center; padding-top: 140px; gap: 30px; }
@@ -162,6 +164,7 @@
             .action-dock { width: 100%; right: 0; bottom: 0; flex-direction: row; gap: 0; }
             .btn-float { flex: 1; border-radius: 0; padding: 25px 10px; font-size: 0.7rem; }
             .booking-passport { padding: 40px 20px; }
+            .btn-book { grid-column: span 1; }
         }
     </style>
 </head>
@@ -242,24 +245,40 @@
     </section>
 
     <section id="offers" style="background: #0a0706;">
-        <div class="section-header"><p>Limited Time</p><h2>Special Offers</h2></div>
+        <div class="section-header"><p>Limited Time Campaign</p><h2>Special Offers</h2></div>
         <div class="offers-grid">
             <div class="offer-card">
-                <div class="hearts-bg-container">
-                    <i class="fas fa-heart floating-heart" style="left: 10%; animation-delay: 0s; font-size: 1.2rem;"></i>
-                    <i class="fas fa-heart floating-heart" style="left: 25%; animation-delay: 2s; font-size: 1.5rem;"></i>
-                    <i class="fas fa-heart floating-heart" style="left: 40%; animation-delay: 1s; font-size: 1rem;"></i>
-                    <i class="fas fa-heart floating-heart" style="left: 55%; animation-delay: 3.5s; font-size: 1.8rem;"></i>
-                    <i class="fas fa-heart floating-heart" style="left: 70%; animation-delay: 0.5s; font-size: 1.3rem;"></i>
-                    <i class="fas fa-heart floating-heart" style="left: 85%; animation-delay: 2.5s; font-size: 1.1rem;"></i>
-                </div>
-
                 <div class="offer-content-layer">
-                    <div class="offer-badge">LTD TIME</div>
-                    <h3>Valentine's Special</h3>
-                    <p>Record your dedication. 20% Off on Vocal Tracking and Mixing for all tribute tracks and personalized gifts.</p>
-                    <p class="offer-expiry">VALID UNTIL FEBRUARY 14TH</p>
-                    <a href="https://wa.me/917887621520?text=I'm%20interested%20in%20the%20Valentine's%20Week%20Offer" class="btn-directions" style="margin-top: 30px;">CLAIM OFFER NOW →</a>
+                    <div class="offer-badge">MONSOON 2026</div>
+                    <h3>Monsoon Beat Drop Bundle</h3>
+                    <p class="offer-subtitle">Track. Mix. Master. Lock your next single for a flat rate.</p>
+                    
+                    <ul class="offer-details-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>High-End Tracking:</strong> Up to 3 hours of dedicated recording time in our studio.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Industry-Standard Mix:</strong> Pro-level vocal tuning, timing correction, and custom spacing.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Streaming-Ready Master:</strong> Fully optimized loudness levels for Spotify, Apple Music, and YouTube.</span>
+                        </li>
+                    </ul>
+
+                    <p style="font-size: 0.9rem; color: var(--gray); font-style: italic; margin-bottom: 10px;">
+                        *Limited slots available to ensure premium production turnarounds.
+                    </p>
+                    <p class="offer-expiry">CAMPAIGN ACTIVE FOR JUNE & JULY</p>
+                    
+                    <a href="https://wa.me/917887621520?text=Hey%20Monk%20Studios%21%20I%20want%20to%20book%20the%20Monsoon%20Beat%20Drop%20Bundle%20for%20my%20next%20track." 
+                       target="_blank" 
+                       class="btn-directions" 
+                       style="margin-top: 30px; width: 100%; max-width: 320px;">
+                        CLAIM OFFER VIA WHATSAPP →
+                    </a>
                 </div>
             </div>
         </div>
