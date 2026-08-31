@@ -1,1942 +1,622 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monk Studios Production | Audio Recording, Mixing & Mastering in Nagpur</title>
+  <meta name="description" content="Premier music recording, mixing, mastering, and commercial audio production studio at Indora Square, Nagpur." />
   
-  <!-- Chosen Palette: Warm Gold & Dark Slate (Monk Studio Aesthetics) -->
-  <!-- Application Structure Plan: High-converting studio landing page featuring hero lead-in, Google verification trust bar, dual-layer services, single-track A/B audio mix-check player, 5-photo facility gallery, pricing anchor, expanded commercial FAQ, location card with embedded map, and direct WhatsApp booking modal. -->
-  <!-- Visualization & Content Choices: Canvas-based Web Audio visualizer for single featured track, HTML5 Web Audio API engine for Raw vs. Mastered A/B mix comparisons, native JS accordion & modal logic, embedded Google Maps iframe, compliant LocalBusiness JSON-LD schema. NO SVG graphics used. NO Mermaid JS used. -->
-  <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
-  <title>Monk Studios Production | Recording Studio in Nagpur | From Vision To Vibration</title>
-  <meta name="description" content="Rated 4.9/5 on Google with 127+ reviews. Premier recording studio at Indora Square, Nagpur for vocal recording, live band tracking, music production, mixing, mastering, and voiceovers.">
-  <link rel="canonical" href="https://www.monkstudiosproduction.com/">
-
-  <!-- Open Graph / Meta -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.monkstudiosproduction.com/">
-  <meta property="og:title" content="Monk Studios Production | Recording Studio in Nagpur">
-  <meta property="og:description" content="Rated 4.9/5 on Google with 127+ reviews. Professional vocal tracking, live band sessions, mixing, mastering, and music production at Indora Square, Nagpur.">
-  <meta property="og:image" content="images/control-room-desk.webp">
-
-  <!-- Twitter Meta -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Monk Studios Production | Recording Studio in Nagpur">
-  <meta name="twitter:description" content="Rated 4.9/5 on Google with 127+ reviews. Professional audio engineering and music production facility in Nagpur.">
-  <meta name="twitter:image" content="images/control-room-desk.webp">
-
-  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Compliant LocalBusiness Schema (No Self-Serving aggregateRating) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "EntertainmentBusiness"],
-    "name": "Monk Studios Production",
-    "image": "https://www.monkstudiosproduction.com/images/control-room-desk.webp",
-    "@id": "https://www.monkstudiosproduction.com/#studio",
-    "url": "https://www.monkstudiosproduction.com/",
-    "telephone": "+917887621520",
-    "email": "higheroctavess@gmail.com",
-    "priceRange": "₹999+",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Plot no. 684, Sanjay Maidan, Next to Indora Square Metro Station, Opposite Indian Oil Petrol Pump, Indora, Model Town",
-      "addressLocality": "Nagpur",
-      "addressRegion": "Maharashtra",
-      "postalCode": "440014",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 21.1747761,
-      "longitude": 79.1010714
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "sameAs": [
-      "https://maps.google.com/?cid=9550955649622825373",
-      "https://msp-ngp.github.io/monk-studios/"
-    ]
-  }
-  </script>
-  
   <style>
     :root {
-      --bg-dark: #090a0d;
-      --bg-surface: #0f1117;
-      --bg-card: #14161f;
-      --bg-card-hover: #1a1e2b;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(245, 158, 11, 0.35);
-      --accent: #f59e0b;
-      --accent-hover: #fbbf24;
-      --accent-gradient: linear-gradient(135deg, #f59e0b, #ef4444);
-      --text-main: #f9fafb;
+      --bg-main: #0c0d10;
+      --bg-card: #15171e;
+      --bg-card-hover: #1c1f28;
+      --primary: #f59e0b;
+      --primary-glow: rgba(245, 158, 11, 0.3);
+      --text-main: #f3f4f6;
       --text-muted: #9ca3af;
-      --text-dim: #6b7280;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #3b82f6;
+      --font: 'Plus Jakarta Sans', sans-serif;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      font-family: var(--font);
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-dark);
+      background-color: var(--bg-main);
       color: var(--text-main);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      padding-bottom: 72px;
+      padding-bottom: 70px;
     }
 
-    .container {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Ambient Glow */
-    .ambient-glow {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 900px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(239, 68, 68, 0.03) 50%, transparent 80%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Navigation */
+    /* Header & Navigation */
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 50;
-      background: rgba(9, 10, 13, 0.92);
+      left: 0;
+      width: 100%;
+      background: rgba(12, 13, 16, 0.85);
       backdrop-filter: blur(12px);
+      z-index: 1000;
       border-bottom: 1px solid var(--border);
     }
-    .nav-wrap {
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 72px;
     }
-    .brand {
+
+    .logo-wrapper {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
-      color: #fff;
+      color: var(--text-main);
     }
-    .brand-icon {
-      width: 34px;
-      height: 34px;
-      background: var(--accent-gradient);
-      border-radius: 8px;
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), #d97706);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       color: #000;
-    }
-    .brand-title {
       font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
+      box-shadow: 0 0 15px var(--primary-glow);
     }
-    .brand-title span {
-      color: var(--accent);
+
+    .logo-text {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
+
+    .logo-text span {
+      color: var(--primary);
+      font-weight: 400;
+    }
+
     .nav-links {
       display: flex;
+      gap: 1.5rem;
+      list-style: none;
       align-items: center;
-      gap: 20px;
     }
-    .nav-link {
-      font-size: 0.88rem;
-      font-weight: 500;
+
+    .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-link:hover {
-      color: #fff;
+
+    .nav-links a:hover {
+      color: var(--primary);
     }
 
-    /* Mobile Drawer */
-    .mobile-menu-trigger {
-      display: none;
-      background: none;
-      border: 1px solid var(--border);
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .mobile-drawer {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 280px;
-      height: 100vh;
-      background: #12141c;
-      border-left: 1px solid var(--border);
-      z-index: 1000;
-      padding: 30px;
-      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      box-shadow: -20px 0 50px rgba(0,0,0,0.8);
-    }
-    .mobile-drawer.open {
-      right: 0;
-    }
-    .mobile-drawer-close {
-      align-self: flex-end;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: #fff;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-    .mobile-drawer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 20px;
-    }
-    .mobile-drawer-links a {
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 26px;
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 0.92rem;
       text-decoration: none;
-      cursor: pointer;
-      border: 1px solid transparent;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #090a0d;
-    }
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
-    }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      border-color: var(--border);
-    }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-    .btn-sm {
-      padding: 8px 16px;
-      font-size: 0.84rem;
-    }
-    .btn-block {
-      width: 100%;
-    }
-
-    /* Mobile Action Bar */
-    .mobile-bottom-bar {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #0d0f17;
-      border-top: 1px solid rgba(245, 158, 11, 0.3);
-      z-index: 90;
-      padding: 10px 16px;
-      box-shadow: 0 -10px 25px rgba(0,0,0,0.7);
-    }
-    .mobile-bar-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
-      text-align: center;
-    }
-    .mobile-bar-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      color: #fff;
-      padding: 8px 4px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
-    .mobile-bar-btn.wa {
-      background: rgba(16, 185, 129, 0.15);
-      border-color: rgba(16, 185, 129, 0.35);
-      color: #34d399;
-    }
-
-    /* Section Global Headers */
-    .section-head {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .section-tag {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .section-subtitle {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 640px;
-      margin: 10px auto 0;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      position: relative;
-      padding: 90px 0 50px;
-      text-align: center;
-      z-index: 1;
-    }
-    .tagline-pill {
+      transition: transform 0.2s, box-shadow 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(245, 158, 11, 0.08);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      border-radius: 9999px;
-      padding: 6px 18px;
-      margin-bottom: 24px;
-      font-size: 0.84rem;
-      color: #fbbf24;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .hero h1 {
-      font-size: clamp(2.3rem, 5.2vw, 4rem);
-      font-weight: 800;
-      line-height: 1.14;
-      letter-spacing: -0.03em;
-      max-width: 900px;
-      margin: 0 auto 20px;
-    }
-    .gradient-text {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-services-line {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #e5e7eb;
-      margin-bottom: 14px;
-    }
-    .hero-services-line span {
-      color: var(--accent);
-      margin: 0 6px;
-    }
-    .hero-subcopy {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 660px;
-      margin: 0 auto 34px;
-      line-height: 1.6;
-    }
-    .cta-group {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-    .hero-location-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      color: var(--text-dim);
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      padding: 6px 16px;
-      border-radius: 30px;
-    }
-    .hero-location-bar a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .hero-location-bar a:hover {
-      color: var(--accent);
-    }
-
-    /* TRUST STRIP */
-    .trust-section {
-      padding: 34px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-surface);
-      text-align: center;
-    }
-    .trust-grid {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 28px;
-    }
-    .trust-stat-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .trust-rating-head {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #fff;
-    }
-    .trust-rating-head .stars {
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-    .trust-stat-sub {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .trust-tagline {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #f3f4f6;
-      letter-spacing: 0.5px;
-    }
-
-    /* SERVICES */
-    .services-section {
-      padding: 90px 0;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-      gap: 22px;
-    }
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-    .service-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
-    }
-    <div class="gallery-grid-dynamic">
-        
-        <!-- Photo 1: Live Band Jamming & Drum Tracking -->
-        <div class="gallery-card featured-large">
-          <img src="images/live-band-session.jpg" alt="Live band rehearsal and drum recording session at Monk Studios Production" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Spacious Live Room & Jamming</h4>
-            <p>Acoustically tuned for full band setups, multi-mic drum tracking, guitars, keyboards, and live rehearsals.</p>
-          </div>
-        </div>
-
-        <!-- Photo 2: Control Room & DAW Desk -->
-        <div class="gallery-card featured-tall">
-          <img src="images/control-room-desk.jpg" alt="Calibrated control room mixing desk at Monk Studios Production" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Calibrated Control Room</h4>
-            <p>Near-field monitoring, surgical multi-track mixing console, and complete acoustic diffusion.</p>
-          </div>
-        </div>
-
-        <!-- Photo 3: Commercial & Song Production Collaboration -->
-        <div class="gallery-card col-4">
-          <img src="images/studio-artists-production.jpg" alt="Music production and artist recording session at Monk Studios" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Collaborative Song Production</h4>
-            <p>From vocal direction to full instrumental arrangement with seasoned producers.</p>
-          </div>
-        </div>
-
-        <!-- Photo 4: Vocal Booth & Voiceover Tracking -->
-        <div class="gallery-card col-4">
-          <img src="images/vocal-booth-session.jpg" alt="Vocal booth recording and voiceover tracking at Monk Studios" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Vocal & Dubbing Booth</h4>
-            <p>High-sensitivity studio condenser microphones, zero bleed, and instant latency-free monitoring.</p>
-          </div>
-        </div>
-
-        <!-- Photo 5: Choir / Ensemble & Group Recording -->
-        <div class="gallery-card col-4">
-          <img src="images/choir-recording-ensemble.jpeg" alt="Choir group and ensemble recording session at Monk Studios Nagpur" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Choral & Ensemble Tracking</h4>
-            <p>Spacious floor plan engineered to accommodate large vocal groups, school choirs, and acoustic ensembles.</p>
-          </div>
-        </div>
-
-      </div>
-      gap: 6px;
-      padding: 0;
-      transition: gap 0.2s;
-    }
-    .service-card-btn:hover {
-      gap: 10px;
-      color: var(--accent-hover);
-    }
-
-    /* MIX CHECK / AUDIO SHOWCASE SECTION */
-    .audio-showcase-section {
-      padding: 90px 0;
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .audio-player-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-accent);
-      border-radius: 20px;
-      padding: 34px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .audio-visualizer-box {
-      background: #090a0f;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      position: relative;
-      margin-bottom: 24px;
-    }
-    .visualizer-canvas-wrap {
-      width: 100%;
-      height: 120px;
-      position: relative;
-    }
-    canvas#audioCanvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .mode-badge-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .track-title-info {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #fff;
-    }
-    .ab-toggle-box {
-      display: inline-flex;
-      background: #000;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 4px;
-      gap: 4px;
-    }
-    .ab-btn {
-      padding: 7px 18px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 800;
       border: none;
       cursor: pointer;
-      color: var(--text-dim);
-      background: none;
-      transition: all 0.2s;
     }
-    .ab-btn.active-mode {
-      background: var(--accent);
-      color: #000;
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px var(--primary-glow);
     }
-    .player-controls-strip {
+
+    /* Hero Section */
+    .hero {
+      min-height: 85vh;
       display: flex;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 4rem;
+      position: relative;
+      background: radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
     }
-    .play-master-btn {
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Container Layout */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 5rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    /* Interactive Audio A/B Player */
+    .player-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .track-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .track-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .track-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .ab-toggle {
+      display: flex;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .ab-btn {
+      padding: 0.4rem 1rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .ab-btn.active {
+      background: var(--primary);
+      color: #000;
+    }
+
+    .visualizer-box {
+      height: 80px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+      overflow: hidden;
+    }
+
+    .v-bar {
+      width: 4px;
+      height: 15%;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: height 0.1s ease;
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .play-btn {
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background: var(--accent-gradient);
+      background: var(--primary);
       border: none;
       color: #000;
       font-size: 1.2rem;
-      font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: transform 0.2s;
     }
-    .play-master-btn:hover {
-      transform: scale(1.06);
+
+    .play-btn:hover {
+      transform: scale(1.08);
     }
-    .timeline-container {
+
+    .progress-bar-container {
       flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 220px;
-    }
-    .timeline-bar {
-      width: 100%;
-      height: 6px;
+      height: 8px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
       cursor: pointer;
       position: relative;
-      overflow: hidden;
-    }
-    .timeline-progress {
-      width: 0%;
-      height: 100%;
-      background: var(--accent);
     }
 
-    /* THE STUDIO: PHOTO GALLERY */
-    .studio-gallery-section {
-      padding: 90px 0;
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      border-radius: 4px;
     }
-    .gallery-grid-dynamic {
+
+    /* Service Cards */
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
-    .gallery-card {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
+
+    .service-card {
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      background: #11131a;
-      height: 290px;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.2s, border-color 0.2s;
     }
-    .gallery-card.featured-large {
-      grid-column: span 7;
-      height: 340px;
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(245, 158, 11, 0.4);
     }
-    .gallery-card.featured-tall {
-      grid-column: span 5;
-      height: 340px;
+
+    .service-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
     }
-    .gallery-card.col-4 {
-      grid-column: span 4;
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
     }
-    .gallery-card img {
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Responsive Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      background: #1a1d26;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .gallery-card:hover img {
-      transform: scale(1.06);
-    }
-    .gallery-card-content {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 25%, rgba(9, 10, 13, 0.94) 100%);
+
+    .img-fallback {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
-      z-index: 2;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
-    .gallery-card-content h4 {
+
+    .gallery-meta {
+      padding: 1.25rem;
+    }
+
+    .gallery-meta h4 {
       font-size: 1.1rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .gallery-card-content p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.4;
+      margin-bottom: 0.25rem;
     }
 
-    /* PRICING */
-    .starting-from-section {
-      padding: 90px 0;
-      border-top: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--bg-dark) 0%, #12141c 100%);
-      text-align: center;
-    }
-    .starting-card-highlight {
-      max-width: 780px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, #171923 0%, #10121a 100%);
-      border: 2px solid var(--border-accent);
-      border-radius: 20px;
-      padding: 48px 32px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-    .starting-badge-top {
-      display: inline-block;
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 6px 16px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-    }
-    .starting-headline {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .starting-headline span {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .starting-desc {
-      font-size: 1.02rem;
+    .gallery-meta span {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      max-width: 620px;
-      margin: 0 auto 32px;
-      line-height: 1.6;
-    }
-    .starting-feature-pills {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-    .starting-pill {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.86rem;
-      color: #d1d5db;
-      font-weight: 600;
     }
 
-    /* FAQ ACCORDION */
-    .faq-section {
-      padding: 90px 0;
-      border-top: 1px solid var(--border);
-      background: var(--bg-surface);
-    }
-    .faq-accordion {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-    .faq-question {
-      width: 100%;
-      padding: 18px 22px;
-      text-align: left;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-    .faq-icon {
-      font-size: 1.2rem;
-      color: var(--accent);
-      transition: transform 0.2s;
-    }
-    .faq-answer {
-      padding: 0 22px 18px;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.6;
+    /* Sticky Mobile Action Bar */
+    .mobile-bar {
       display: none;
-    }
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    /* LOCATION & EMBEDDED MAP */
-    .location-section {
-      padding: 90px 0;
-      border-top: 1px solid var(--border);
-    }
-    .location-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-    .location-info-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 34px 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .location-info-card h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-    .location-details-list {
-      list-style: none;
-      margin: 18px 0 24px;
-    }
-    .location-details-list li {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      padding: 8px 0;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .map-embed-container {
-      width: 100%;
-      min-height: 380px;
-      height: 100%;
-      background: #0d0f15;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-    }
-    .map-embed-container iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 380px;
-      border: 0;
-      display: block;
-    }
-
-    /* FINAL CTA */
-    .final-cta-section {
-      padding: 100px 0;
-      text-align: center;
-      background: linear-gradient(180deg, #090a0d 0%, #12141c 100%);
-      border-top: 1px solid var(--border);
-    }
-    .final-cta-section h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    /* Modal System */
-    .modal-backdrop {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
       bottom: 0;
-      background: rgba(4, 5, 8, 0.85);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s ease, visibility 0.25s;
-      padding: 20px;
-    }
-    .modal-backdrop.open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .modal-dialog {
-      background: #12141c;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
+      left: 0;
       width: 100%;
-      max-width: 520px;
-      padding: 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      transform: scale(0.95);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-    }
-    .modal-backdrop.open .modal-dialog {
-      transform: scale(1);
-    }
-    .modal-close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .form-group {
-      margin-bottom: 16px;
-    }
-    .form-label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #d1d5db;
-      margin-bottom: 6px;
-    }
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      background: #090a0f;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      color: #fff;
-      font-family: inherit;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--accent);
-    }
-    .form-textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-    .form-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    /* Toast Notification */
-    .toast-box {
-      position: fixed;
-      bottom: 84px;
-      right: 24px;
-      background: #1f2937;
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      padding: 14px 20px;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 0.9rem;
-      z-index: 1000;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .toast-box.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /* Footer */
-    footer {
-      padding: 60px 0 40px;
+      background: rgba(15, 17, 23, 0.95);
       border-top: 1px solid var(--border);
-      background: #07080a;
-      font-size: 0.88rem;
-    }
-    .footer-wrap {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      color: var(--text-dim);
-      font-size: 0.8rem;
+      padding: 0.75rem 1.5rem;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
     }
 
-    /* Mobile Responsive Rules */
-    @media (max-width: 900px) {
-      .gallery-grid-dynamic {
-        grid-template-columns: 1fr 1fr;
-      }
-      .gallery-card.featured-large,
-      .gallery-card.featured-tall,
-      .gallery-card.col-4 {
-        grid-column: span 2;
-        height: 280px;
-      }
-      .location-grid {
-        grid-template-columns: 1fr;
-      }
+    .mobile-bar a {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
     }
 
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
-      .mobile-menu-trigger {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .mobile-bottom-bar {
-        display: block;
-      }
-      .gallery-grid-dynamic {
-        grid-template-columns: 1fr;
-      }
-      .gallery-card.featured-large,
-      .gallery-card.featured-tall,
-      .gallery-card.col-4 {
-        grid-column: span 1;
-        height: 250px;
-      }
-      .footer-wrap {
-        grid-template-columns: 1fr;
-      }
-      .mode-badge-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+      .mobile-bar {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="ambient-glow"></div>
-
-  <!-- Main Navigation -->
   <header>
-    <div class="container nav-wrap">
-      <a href="#" class="brand">
-        <div class="brand-icon">M</div>
-        <div class="brand-title">MONK <span>STUDIOS</span></div>
+    <div class="nav-container">
+      <a href="#" class="logo-wrapper">
+        <div class="logo-icon"><i class="fa-solid fa-wave-square"></i></div>
+        <div class="logo-text">MONK STUDIOS <span>PRODUCTION</span></div>
       </a>
-      
-      <div class="nav-links">
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#mixcheck" class="nav-link">Mix Check</a>
-        <a href="#studio" class="nav-link">The Studio</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#location" class="nav-link">Location</a>
-        <button onclick="openBookingModal('Studio Session')" class="btn btn-primary btn-sm">Check Availability</button>
-      </div>
-
-      <button class="mobile-menu-trigger" onclick="toggleMobileDrawer()" aria-label="Open navigation menu">
-        MONK ☰
-      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#audio-reel">Audio Reel</a></li>
+        <li><a href="#gallery">Studio</a></li>
+        <li>
+          <a href="https://wa.me/919876543210?text=Hi%20Monk%20Studios,%20I%20want%20to%20book%20a%20recording%20session" class="btn-primary" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Book Session
+          </a>
+        </li>
+      </ul>
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <button class="mobile-drawer-close" onclick="toggleMobileDrawer()">×</button>
-    <div style="font-weight: 800; font-size: 1.2rem; color: var(--accent);">MONK STUDIOS</div>
-    <ul class="mobile-drawer-links">
-      <li><a href="#services" onclick="toggleMobileDrawer()">Services</a></li>
-      <li><a href="#mixcheck" onclick="toggleMobileDrawer()">Mix Check</a></li>
-      <li><a href="#studio" onclick="toggleMobileDrawer()">The Studio</a></li>
-      <li><a href="#pricing" onclick="toggleMobileDrawer()">Pricing</a></li>
-      <li><a href="#faq" onclick="toggleMobileDrawer()">FAQ</a></li>
-      <li><a href="#location" onclick="toggleMobileDrawer()">Location</a></li>
-    </ul>
-    <div style="margin-top: auto;">
-      <button onclick="toggleMobileDrawer(); openBookingModal('Mobile Drawer Inquiry');" class="btn btn-primary btn-block">Check Availability</button>
-    </div>
-  </div>
-
-  <!-- Persistent Mobile Action Bar -->
-  <div class="mobile-bottom-bar">
-    <div class="mobile-bar-inner">
-      <a href="tel:07887621520" class="mobile-bar-btn">📞 CALL</a>
-      <a href="https://wa.me/917887621520?text=Hello%20Monk%20Studios%20Production,%20I'd%20like%20to%20check%20availability." target="_blank" rel="noopener" class="mobile-bar-btn wa">💬 WHATSAPP</a>
-      <a href="https://maps.google.com/?cid=9550955649622825373" target="_blank" rel="noopener" class="mobile-bar-btn">📍 DIRECTIONS</a>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      
-      <div class="tagline-pill">From Vision To Vibration</div>
-
-      <h1>
-        Professional Recording Studio in <span class="gradient-text">Nagpur.</span>
-      </h1>
-
-      <div class="hero-services-line">
-        Music Recording <span>•</span> Music Production <span>•</span> Mixing <span>•</span> Mastering <span>•</span> Voice Over
-      </div>
-
-      <p class="hero-subcopy">
-        Turn your raw musical ideas into broadcast-grade, release-ready records. Calibrated booth acoustics, live room tracking, and dedicated production direction right next to Indora Square Metro Station.
-      </p>
-
-      <div class="cta-group">
-        <button onclick="openBookingModal('General Booking')" class="btn btn-primary">
-          Check Availability
-        </button>
-        <a href="#mixcheck" class="btn btn-secondary">
-          Hear Mix Comparison
+  <section class="hero" id="about">
+    <div class="hero-content">
+      <div class="hero-tag"><i class="fa-solid fa-location-dot"></i> Indora Square, Nagpur</div>
+      <h1>Sound That Speaks & Defines Your Art</h1>
+      <p>Precision multi-track recording, industry-grade mixing, dynamic mastering, and custom music production crafted for independent artists and commercial brands.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#audio-reel" class="btn-primary"><i class="fa-solid fa-headphones"></i> Listen to Work</a>
+        <a href="https://wa.me/919876543210?text=Hi%20Monk%20Studios,%20I'd%20like%20to%20inquire%20about%20rates" class="btn-primary" style="background: transparent; color: var(--text-main); border: 1px solid var(--border);">
+          Inquire Rates
         </a>
       </div>
-
-      <div class="hero-location-bar">
-        📍 <a href="#location">Next to Indora Square Metro Station, Nagpur (Get Directions)</a>
-      </div>
-
     </div>
   </section>
 
-  <!-- Google Verification & Trust Strip -->
-  <section class="trust-section">
-    <div class="container">
-      <div class="trust-grid">
-        
-        <div class="trust-stat-box">
-          <div class="trust-rating-head">
-            <span>4.9</span>
-            <span class="stars">★★★★★</span>
-          </div>
-          <span class="trust-stat-sub">Google Verified Rating</span>
-        </div>
-
-        <div class="trust-stat-box">
-          <div class="trust-rating-head">
-            <span>127+</span>
-          </div>
-          <span class="trust-stat-sub">Verified Google Reviews</span>
-        </div>
-
-        <div class="trust-tagline">
-          Real Artists • Real Projects • Real Sound
-        </div>
-
-      </div>
+  <section class="container" id="audio-reel">
+    <div class="section-title">
+      <h2>Interactive Audio Reel</h2>
+      <p>Compare pre-production mixes with our final mastered studio output.</p>
     </div>
-  </section>
 
-  <!-- Services Section -->
-  <section id="services" class="services-section">
-    <div class="container">
-      
-      <div class="section-head">
-        <div class="section-tag">Engineered For Creators</div>
-        <h2 class="section-title">Everything Your Project Needs to Release</h2>
-        <p class="section-subtitle">We balance artist vision with surgical technical execution across every stage of the audio pipeline.</p>
-      </div>
-
-      <div class="services-grid">
-        
-        <div class="service-card">
-          <div>
-            <div class="service-icon">🎙️</div>
-            <h3 class="customer-facing-title">Capture Your Voice With Total Clarity</h3>
-            <p class="customer-facing-desc">Step into an acoustically silent booth and record confident, clean vocals with instant headphone feedback and vocal coaching.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Neumann condenser tracking • discrete low-noise preamps • zero-latency monitoring • 24-bit/96kHz WAV capture
-            </div>
-          </div>
-          <button onclick="openBookingModal('Vocal Tracking')" class="service-card-btn">Book Vocal Booth →</button>
-        </div>
-
-        <div class="service-card">
-          <div>
-            <div class="service-icon">🥁</div>
-            <h3 class="customer-facing-title">Turn A Melody Into A Full Song</h3>
-            <p class="customer-facing-desc">Complete custom arrangements from scratch, blending authentic Indian rhythms (Tabla, Dholak) with modern industry beats.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Multi-genre orchestration • live ethnic percussion layers • MIDI scoring • dynamic rhythm alignment
-            </div>
-          </div>
-          <button onclick="openBookingModal('Music Production')" class="service-card-btn">Start Song Production →</button>
-        </div>
-
-        <div class="service-card">
-          <div>
-            <div class="service-icon">🎚️</div>
-            <h3 class="customer-facing-title">Make Your Song Sound Release-Ready</h3>
-            <p class="customer-facing-desc">Professional mixing and mastering so your track sounds massive, clear, and competitive on Spotify, Apple Music, and YouTube.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Multi-track spatial balance • vocal pitch tuning • analog saturation • -14 LUFS loudness • true-peak control
-            </div>
-          </div>
-          <button onclick="openBookingModal('Mixing & Mastering')" class="service-card-btn">Send Tracks for Mix →</button>
-        </div>
-
-        <div class="service-card">
-          <div>
-            <div class="service-icon">🎧</div>
-            <h3 class="customer-facing-title">Broadcast-Standard Voiceovers & Dubs</h3>
-            <p class="customer-facing-desc">Crystal-clear speech recording for YouTube creators, audiobooks, ad films, and OTT streaming platforms.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Broadcast de-essing • room-noise elimination • dialogue leveling • OTT sync standards
-            </div>
-          </div>
-          <button onclick="openBookingModal('Voiceover & Dubbing')" class="service-card-btn">Book Voiceover Session →</button>
-        </div>
-
-        <div class="service-card">
-          <div>
-            <div class="service-icon">📢</div>
-            <h3 class="customer-facing-title">Catchy Jingles That Sell Your Brand</h3>
-            <p class="customer-facing-desc">Memorable radio and social media jingles, audio logos, and commercial voiceovers tailored for businesses.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Sonic branding design • targeted emotional hooks • radio/social media audio loudness master
-            </div>
-          </div>
-          <button onclick="openBookingModal('Commercial Jingles')" class="service-card-btn">Commission Jingle →</button>
-        </div>
-
-        <div class="service-card">
-          <div>
-            <div class="service-icon">🎬</div>
-            <h3 class="customer-facing-title">Cinematic Scores That Move Audiences</h3>
-            <p class="customer-facing-desc">Emotionally rich background music and dramatic cues crafted scene-by-scene for short films, web series, and docs.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Scene-locked sync • hybrid orchestral synthesis • dramatic cue builds • multi-stem film delivery
-            </div>
-          </div>
-          <button onclick="openBookingModal('Film Scoring & BGM')" class="service-card-btn">Score Your Film →</button>
-        </div>
-
-        <div class="service-card">
-          <div>
-            <div class="service-icon">🧹</div>
-            <h3 class="customer-facing-title">Rescue Bad & Noisy Audio Recordings</h3>
-            <p class="customer-facing-desc">Remove background room hum, traffic noise, phone hiss, and distorted clipping from valuable voice recordings.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Spectral de-noise • room reverb suppression • clip restoration • phase-aligned cleanup
-            </div>
-          </div>
-          <button onclick="openBookingModal('Audio Restoration')" class="service-card-btn">Clean Your Audio →</button>
-        </div>
-
-        <div class="service-card">
-          <div>
-            <div class="service-icon">🎙️</div>
-            <h3 class="customer-facing-title">Turn Your Talks Into Hit Podcasts</h3>
-            <p class="customer-facing-desc">Full podcast recording, noise cleaning, intro/outro music scoring, and multi-speaker leveling ready for upload.</p>
-            <div class="technical-details">
-              <strong>Technical Execution</strong>
-              Multi-mic isolation • dynamic broadcast gating • loudness matching • episode master export
-            </div>
-          </div>
-          <button onclick="openBookingModal('Podcast Production')" class="service-card-btn">Record Podcast →</button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MIX CHECK / AUDIO SHOWCASE SECTION (SINGLE FEATURED AUDIO TRACK) -->
-  <section id="mixcheck" class="audio-showcase-section">
-    <div class="container">
-      
-      <div class="section-head">
-        <div class="section-tag">Interactive Audio Showcase</div>
-        <h2 class="section-title">Hear The Monk Studios Difference</h2>
-        <p class="section-subtitle">Toggle between raw session audio and our final mastered release. Experience how acoustic isolation, surgical EQ, and analog mastering elevate sound quality.</p>
-      </div>
-
-      <div class="audio-player-card">
-        
-        <div class="mode-badge-wrap">
-          <div>
-            <div id="currentTrackGenre" style="font-size: 0.78rem; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 1.5px;">Flagship Studio Master • Live & Acoustic Vocal Track</div>
-            <div id="currentTrackTitle" class="track-title-info">Featured Studio Single - "Horizon Rush"</div>
-          </div>
-
-          <!-- Raw vs Monk Mastered A/B Switcher -->
-          <div class="ab-toggle-box">
-            <button id="abRawBtn" class="ab-btn" onclick="setAudioMode('raw')">RAW SESSION</button>
-            <button id="abMasteredBtn" class="ab-btn active-mode" onclick="setAudioMode('mastered')">MONK MASTERED ★</button>
-          </div>
-        </div>
-
-        <!-- Waveform Visualizer -->
-        <div class="audio-visualizer-box">
-          <div class="visualizer-canvas-wrap">
-            <canvas id="audioCanvas"></canvas>
-          </div>
-        </div>
-
-        <!-- Audio Controls -->
-        <div class="player-controls-strip">
-          <button id="mainPlayBtn" class="play-master-btn" onclick="toggleAudioPlay()" aria-label="Play or Pause Mix Preview">
-            ▶
-          </button>
-
-          <div class="timeline-container">
-            <span id="currentTimeDisplay" style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); width: 42px;">0:00</span>
-            <div class="timeline-bar" onclick="seekAudioTimeline(event)">
-              <div id="timelineProgress" class="timeline-progress"></div>
-            </div>
-            <span id="totalTimeDisplay" style="font-size: 0.82rem; font-weight: 700; color: var(--text-dim); width: 42px;">0:24</span>
-          </div>
-
-          <button onclick="openBookingModal('Mix Check Inquiry')" class="btn btn-primary btn-sm" style="margin-left: auto;">
-            Mix My Track →
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- The Studio Photo Gallery -->
-  <section id="studio" class="studio-gallery-section">
-    <div class="container">
-      
-      <div class="section-head">
-        <div class="section-tag">Inside The Facility</div>
-        <h2 class="section-title">Built For Creative Flow & Pure Acoustics</h2>
-        <p class="section-subtitle">Real sessions, real artists, and true acoustic isolation inside Monk Studios Production, Nagpur.</p>
-      </div>
-
-      <div class="gallery-grid-dynamic">
-        
-        <!-- Photo 1: Live Band Jamming & Drum Tracking -->
-        <div class="gallery-card featured-large">
-          <img src="images/live-band-session.webp" alt="Live band rehearsal and drum recording session at Monk Studios Production" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Spacious Live Room & Jamming</h4>
-            <p>Acoustically tuned for full band setups, multi-mic drum tracking, guitars, keyboards, and live rehearsals.</p>
-          </div>
-        </div>
-
-        <!-- Photo 2: Control Room & DAW Desk -->
-        <div class="gallery-card featured-tall">
-          <img src="images/control-room-desk.webp" alt="Calibrated control room mixing desk at Monk Studios Production" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Calibrated Control Room</h4>
-            <p>Near-field monitoring, surgical multi-track mixing console, and complete acoustic diffusion.</p>
-          </div>
-        </div>
-
-        <!-- Photo 3: Commercial & Song Production Collaboration -->
-        <div class="gallery-card col-4">
-          <img src="images/studio-artists-production.webp" alt="Music production and artist recording session at Monk Studios" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Collaborative Song Production</h4>
-            <p>From vocal direction to full instrumental arrangement with seasoned producers.</p>
-          </div>
-        </div>
-
-        <!-- Photo 4: Vocal Booth & Voiceover Tracking -->
-        <div class="gallery-card col-4">
-          <img src="images/vocal-booth-session.webp" alt="Vocal booth recording and voiceover tracking at Monk Studios" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Vocal & Dubbing Booth</h4>
-            <p>High-sensitivity studio condenser microphones, zero bleed, and instant latency-free monitoring.</p>
-          </div>
-        </div>
-
-        <!-- Photo 5: Choir / Ensemble & Group Recording -->
-        <div class="gallery-card col-4">
-          <img src="images/choir-recording-ensemble.webp" alt="Choir group and ensemble recording session at Monk Studios Nagpur" loading="lazy">
-          <div class="gallery-card-content">
-            <h4>Choral & Ensemble Tracking</h4>
-            <p>Spacious floor plan engineered to accommodate large vocal groups, school choirs, and acoustic ensembles.</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Pricing Anchor Section -->
-  <section id="pricing" class="starting-from-section">
-    <div class="container">
-      
-      <div class="starting-card-highlight">
-        <span class="starting-badge-top">Uncompromising Quality • Accessible Rates</span>
-        <h2 class="starting-headline">Studio Services <span>Starting From ₹999</span></h2>
-        <p class="starting-desc">
-          Vocal sessions, selected mixing/mastering packages, voice-overs, and podcasts available from ₹999. Final session pricing depends on track length, instrumentation, and project scope.
-        </p>
-
-        <div class="starting-feature-pills">
-          <div class="starting-pill">✓ Vocal & Voiceover Tracking</div>
-          <div class="starting-pill">✓ Mixing & Mastering</div>
-          <div class="starting-pill">✓ Live Band & Drum Recording</div>
-          <div class="starting-pill">✓ Indian Percussion & Beats</div>
-        </div>
-
+    <div class="player-card">
+      <div class="track-info">
         <div>
-          <button onclick="openBookingModal('Starting From Rs. 999 Inquiry')" class="btn btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">
-            Check Availability at ₹999+
-          </button>
+          <div class="track-title" id="trackName">Signature Studio Master Reel</div>
+          <div class="track-subtitle" id="trackMode">Playing: Mastered Version (Neumann TLM 102 Tracked)</div>
+        </div>
+        <div class="ab-toggle">
+          <button class="ab-btn" id="btnRaw" onclick="setAB('raw')">Raw Mix</button>
+          <button class="ab-btn active" id="btnMaster" onclick="setAB('master')">Mastered</button>
         </div>
       </div>
 
+      <div class="visualizer-box" id="visualizer"></div>
+
+      <audio id="audioElement" preload="metadata"></audio>
+
+      <div class="player-controls">
+        <button class="play-btn" id="masterPlayBtn" onclick="togglePlay()">
+          <i class="fa-solid fa-play" id="playIcon"></i>
+        </button>
+        <div class="progress-bar-container" id="progressContainer" onclick="seekAudio(event)">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span style="font-size: 0.85rem; color: var(--text-muted);" id="timeDisplay">0:00 / 0:30</span>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ Section (Expanded Commercial Questions) -->
-  <section id="faq" class="faq-section">
-    <div class="container">
-      
-      <div class="section-head">
-        <div class="section-tag">Frequently Asked Questions</div>
-        <h2 class="section-title">Everything You Need to Know</h2>
+  <section class="container" id="services">
+    <div class="section-title">
+      <h2>Studio Capabilities</h2>
+      <p>Comprehensive acoustic and digital audio production services.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+        <h3>Vocal & Instrument Tracking</h3>
+        <p>Acoustically tuned isolation booth recording capturing nuances with crisp clarity and maximum dynamic range.</p>
       </div>
-
-      <div class="faq-accordion">
-        
-        <div class="faq-item active">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>How much does a recording session cost?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Studio services start from ₹999. Final session pricing depends on your exact project requirements, such as recording hours, multi-track mixing complexity, or full song production needs.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Do you offer recording sessions by the hour?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes, we offer flexible hourly booking rates for vocalists, voiceover artists, and quick single-instrument tracking sessions. Contact us on WhatsApp for hourly studio slot availability.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Can I book the studio for a full day?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes, full-day (8 to 12-hour) lockout packages are available at discounted day-rates. Full-day lockouts are ideal for live bands tracking multiple songs, EP projects, or album production blocks.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Can full bands or live drum kits record here?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes! Our spacious live tracking room is acoustically treated to comfortably accommodate full 5-to-7 piece bands, complete drum kits, acoustic instruments, and large choir groups.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Do you provide microphones and instruments?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes. We provide high-grade studio condenser and dynamic microphones (Neumann, Shure, AKG), professional preamps, monitoring headphones, and key studio accessories. Electric guitars, acoustic guitars, and keyboards are also available upon prior request.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Can I bring my own producer?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Absolutely. External producers are welcome to supervise sessions while our in-house sound engineer operates the console and manages audio routing.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Do I need to bring my own instrumental/beat?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            You can bring your pre-made beat/instrumental on a USB drive or phone. If you don't have one, our in-house producers can compose custom music and beats tailored around your lyrics.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Do you provide instrumental/beat production?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes! We produce original beats and complete musical arrangements across modern Hip-Hop, Pop, Bollywood, Indian Classical Percussion (Tabla/Dholak), and Film Score genres.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Can you mix a song recorded at another studio?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes, we frequently mix and master raw WAV stems recorded at home setups or other studios. Simply send us your exported audio stems via Google Drive or WeTransfer.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Can you tune or pitch-correct vocal recordings?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes, professional vocal tuning, timing alignment, and harmony processing are standard parts of our mixing and mastering workflow to ensure your performance sounds radio-ready.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>What is your turnaround time for mixing & mastering?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Standard turnaround for single tracks is 24 to 48 hours. Full song production timelines vary based on arrangement complexity, typically taking 3 to 7 days.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Where exactly is the studio located?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            We are located right next to Indora Square Metro Station, Opposite Indian Oil Petrol Pump, Indora, Model Town, Nagpur, Maharashtra 440014.
-          </div>
-        </div>
-
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-sliders"></i></div>
+        <h3>Mixing & Sound Design</h3>
+        <p>Balancing frequency spectrums, stereo imaging, analog saturation, and surgical EQ for pristine clarity.</p>
       </div>
-
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-compact-disc"></i></div>
+        <h3>Mastering</h3>
+        <p>Loudness normalization, stereo width enhancement, and final punch optimized for all streaming platforms.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Location Section with Live Google Maps Embed -->
-  <section id="location" class="location-section">
-    <div class="container">
-      
-      <div class="location-grid">
-        
-        <div class="location-info-card">
-          <div>
-            <div class="section-tag">Find The Studio</div>
-            <h3>Monk Studios Production</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">
-              Premier recording, live audio tracking, and music production facility in Nagpur.
-            </p>
-
-            <ul class="location-details-list">
-              <li>
-                <span style="font-size: 1.1rem;">📍</span>
-                <div>
-                  <strong style="color: #fff;">Address & Landmark:</strong><br>
-                  Plot no. 684, Sanjay Maidan, Next to Indora Square Metro Station,<br>
-                  Opposite Indian Oil Petrol Pump, Indora, Model Town, Nagpur 440014
-                </div>
-              </li>
-              <li>
-                <span style="font-size: 1.1rem;">🕒</span>
-                <div>
-                  <strong style="color: #fff;">Operating Hours:</strong><br>
-                  Open 24 hours — sessions by appointment
-                </div>
-              </li>
-              <li>
-                <span style="font-size: 1.1rem;">📞</span>
-                <div>
-                  <strong style="color: #fff;">Direct Phone / WhatsApp:</strong><br>
-                  +91 788 762 1520
-                </div>
-              </li>
-              <li>
-                <span style="font-size: 1.1rem;">✉️</span>
-                <div>
-                  <strong style="color: #fff;">Email:</strong><br>
-                  higheroctavess@gmail.com
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <a href="https://maps.google.com/?cid=9550955649622825373" target="_blank" rel="noopener" class="btn btn-primary btn-block">
-            Get Directions on Google Maps ↗
-          </a>
+  <section class="container" id="gallery">
+    <div class="section-title">
+      <h2>Studio Highlights</h2>
+      <p>Professional tracking setups, acoustic treatments, and workspace.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-img-box">
+          <img src="assets/recording-booth.jpg" alt="Vocal Booth" onerror="handleImgError(this, 'Microphone Setup', 'fa-microphone')" />
         </div>
-
-        <div class="map-embed-container">
-          <iframe 
-            title="Monk Studios Production Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.4770381664184!2d79.09849647597157!3d21.173215283084804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c11afc0fcf9d%3A0x848bcf8f6947599d!2sMonk%20Studios%20Production!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
-            width="100%" 
-            height="100%" 
-            style="border:0; width:100%; height:100%; min-height:380px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+        <div class="gallery-meta">
+          <h4>Vocal & Acoustic Booth</h4>
+          <span>Tuned acoustics & condenser tracking</span>
         </div>
-
       </div>
-
+      <div class="gallery-card">
+        <div class="gallery-img-box">
+          <img src="assets/control-desk.jpg" alt="Mixing Console" onerror="handleImgError(this, 'Control Suite', 'fa-sliders')" />
+        </div>
+        <div class="gallery-meta">
+          <h4>Control & Mixing Desk</h4>
+          <span>Logic Pro multi-track mixing & scoring</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-box">
+          <img src="assets/live-room.jpg" alt="Live Room" onerror="handleImgError(this, 'Percussion Area', 'fa-drum')" />
+        </div>
+        <div class="gallery-meta">
+          <h4>Rhythm & Live Percussion</h4>
+          <span>Tracking acoustic rhythm & instruments</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Final CTA Section -->
-  <section class="final-cta-section">
-    <div class="container">
-      <h2>Your Next Record Starts Here.</h2>
-      <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 580px; margin: 0 auto 32px;">
-        Lock in your live tracking hours or discuss your upcoming single release with our sound engineers today.
-      </p>
-      <button onclick="openBookingModal('Final CTA Session')" class="btn btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">
-        CHECK AVAILABILITY
-      </button>
-    </div>
-  </section>
-
-  <!-- Interactive Booking Modal -->
-  <div class="modal-backdrop" id="bookingModal">
-    <div class="modal-dialog">
-      <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close dialog">×</button>
-      
-      <div style="margin-bottom: 20px;">
-        <h3 id="modalTitle" style="font-size: 1.35rem; font-weight: 800; margin-bottom: 4px;">Check Availability</h3>
-        <p style="font-size: 0.88rem; color: var(--text-muted);">Send your session details. We'll confirm availability directly via WhatsApp.</p>
-      </div>
-
-      <form onsubmit="handleFormSubmit(event)">
-        <div class="form-group">
-          <label class="form-label" for="clientName">Your Name / Band / Artist Name *</label>
-          <input type="text" id="clientName" class="form-input" placeholder="e.g. Rahul Sharma" required>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-          <div class="form-group">
-            <label class="form-label" for="clientPhone">WhatsApp Number *</label>
-            <input type="tel" id="clientPhone" class="form-input" placeholder="+91 78876 21520" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="serviceSelect">Selected Service</label>
-            <select id="serviceSelect" class="form-select">
-              <option value="Vocal Tracking">Vocal Tracking</option>
-              <option value="Live Band & Jamming">Live Band & Jamming</option>
-              <option value="Music Production & Beat Creation">Music Production & Beat Creation</option>
-              <option value="Mixing & Mastering">Mixing & Mastering</option>
-              <option value="Voiceover & Dubbing">Voiceover & Dubbing</option>
-              <option value="Choral / Ensemble Tracking">Choral / Ensemble Tracking</option>
-              <option value="Commercial Jingles">Commercial Jingles</option>
-              <option value="Film Scoring & BGM">Film Scoring & BGM</option>
-              <option value="Audio Restoration">Audio Restoration</option>
-              <option value="Podcast Production">Podcast Production</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="preferredDate">Preferred Date / Time</label>
-          <input type="date" id="preferredDate" class="form-input">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="projectNotes">Project Brief</label>
-          <textarea id="projectNotes" class="form-textarea" placeholder="Tell us about your track, band lineup, or reference tracks."></textarea>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary" style="flex: 1;">Request Availability</button>
-          <button type="button" class="btn btn-secondary" onclick="closeBookingModal()">Cancel</button>
-        </div>
-      </form>
-    </div>
+  <div class="mobile-bar">
+    <a href="https://wa.me/919876543210?text=Hi%20Monk%20Studios,%20I%20want%20to%20book%20a%20session" class="btn-primary" target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp"></i> Book a Recording Session
+    </a>
   </div>
 
-  <div class="toast-box" id="toastBox">Opening WhatsApp...</div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-wrap">
-        <div>
-          <h4 style="font-weight: 800; font-size: 1.15rem; margin-bottom: 8px;">Monk Studios Production</h4>
-          <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 360px; line-height: 1.6;">
-            Professional sound recording, live band tracking, music production, mixing, and mastering in Indora Square, Nagpur.
-          </p>
-        </div>
-
-        <div>
-          <h5 style="color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Navigation</h5>
-          <ul style="list-style: none; font-size: 0.88rem; line-height: 2;">
-            <li><a href="#services" style="color: var(--text-muted); text-decoration: none;">Services</a></li>
-            <li><a href="#mixcheck" style="color: var(--text-muted); text-decoration: none;">Mix Check</a></li>
-            <li><a href="#pricing" style="color: var(--text-muted); text-decoration: none;">Pricing</a></li>
-            <li><a href="#studio" style="color: var(--text-muted); text-decoration: none;">The Studio</a></li>
-            <li><a href="#faq" style="color: var(--text-muted); text-decoration: none;">FAQ</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 style="color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Contact</h5>
-          <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;">
-            Next to Indora Square Metro Station<br>
-            Opp. Indian Oil Petrol Pump, Indora<br>
-            Nagpur, Maharashtra 440014<br>
-            higheroctavess@gmail.com
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© Monk Studios Production. From Vision To Vibration.</div>
-        <div><a href="https://maps.google.com/?cid=9550955649622825373" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">Google Maps Directions ↗</a></div>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    /* Navigation & Modal JS */
-    function toggleMobileDrawer() {
-      const drawer = document.getElementById('mobileDrawer');
-      drawer.classList.toggle('open');
+    // 1. Visualizer Setup
+    const visualizer = document.getElementById('visualizer');
+    for (let i = 0; i < 36; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'v-bar';
+      visualizer.appendChild(bar);
     }
+    const bars = document.querySelectorAll('.v-bar');
 
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      item.classList.toggle('active');
-    }
+    // 2. Audio Player & Fallback Web Audio Generator
+    const audio = document.getElementById('audioElement');
+    const playIcon = document.getElementById('playIcon');
+    const progressFill = document.getElementById('progressFill');
+    const timeDisplay = document.getElementById('timeDisplay');
+    const trackMode = document.getElementById('trackMode');
 
-    function openBookingModal(serviceName) {
-      const modal = document.getElementById('bookingModal');
-      modal.classList.add('open');
-      if (serviceName) {
-        document.getElementById('modalTitle').innerText = 'Check Availability: ' + serviceName;
-      }
-    }
+    let isPlaying = false;
+    let currentMode = 'master';
+    let audioContext = null;
+    let synthInterval = null;
 
-    function closeBookingModal() {
-      document.getElementById('bookingModal').classList.remove('open');
-    }
-
-    document.getElementById('bookingModal').addEventListener('click', function(e) {
-      if (e.target === this) closeBookingModal();
-    });
-
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('clientName').value;
-      const phone = document.getElementById('clientPhone').value;
-      const service = document.getElementById('serviceSelect').value;
-      const date = document.getElementById('preferredDate').value || "Flexible";
-      const notes = document.getElementById('projectNotes').value;
-
-      closeBookingModal();
-      showToast(`Thank you ${name}! Opening WhatsApp...`);
-
-      const textMessage = encodeURIComponent(
-        `Hello Monk Studios Production,\n\n` +
-        `I would like to check availability for a session.\n` +
-        `• Name/Band: ${name}\n` +
-        `• Phone: ${phone}\n` +
-        `• Service: ${service}\n` +
-        `• Preferred Date: ${date}\n` +
-        `• Notes: ${notes || 'None'}\n\n` +
-        `Please confirm studio availability.`
-      );
-
-      setTimeout(() => {
-        window.open(`https://wa.me/917887621520?text=${textMessage}`, '_blank');
-      }, 1000);
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toastBox');
-      toast.innerText = msg;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3500);
-    }
-
-    /* Single Featured Track Web Audio Mix Check & Visualizer System */
-    const SINGLE_FEATURED_TRACK = {
-      genre: "Flagship Studio Master • Live & Acoustic Vocal Track",
-      title: 'Featured Studio Single - "Horizon Rush"',
-      duration: 24,
-      baseFreq: 180,
-      pattern: [0.95, 0.45, 0.75, 0.35, 0.98, 0.55, 0.85, 0.45, 0.9, 0.6]
+    // Track URLs (update these relative paths if hosting raw audio files in your repo)
+    const tracks = {
+      master: 'assets/master_sample.mp3',
+      raw: 'assets/raw_sample.mp3'
     };
 
-    let audioMode = 'mastered'; // 'raw' or 'mastered'
-    let isPlaying = false;
-    let playProgressSec = 0;
-    let playTimer = null;
-    let audioCtx = null;
-    let currentOscillator = null;
+    function setAB(mode) {
+      currentMode = mode;
+      document.getElementById('btnRaw').classList.toggle('active', mode === 'raw');
+      document.getElementById('btnMaster').classList.toggle('active', mode === 'master');
+      trackMode.innerText = mode === 'master' 
+        ? 'Playing: Mastered Version (High Precision)' 
+        : 'Playing: Raw Pre-Mix Version';
 
-    function initCanvasVisualizer() {
-      const canvas = document.getElementById('audioCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const dpr = window.devicePixelRatio || 1;
-      
-      canvas.width = canvas.parentElement.clientWidth * dpr;
-      canvas.height = canvas.parentElement.clientHeight * dpr;
-      ctx.scale(dpr, dpr);
-
-      function renderFrame() {
-        const width = canvas.parentElement.clientWidth;
-        const height = canvas.parentElement.clientHeight;
-        ctx.clearRect(0, 0, width, height);
-
-        const track = SINGLE_FEATURED_TRACK;
-        const barCount = 48;
-        const barGap = 4;
-        const barWidth = (width - (barCount * barGap)) / barCount;
-        const isMastered = (audioMode === 'mastered');
-
-        for (let i = 0; i < barCount; i++) {
-          const patVal = track.pattern[i % track.pattern.length];
-          const timeOffset = isPlaying ? Math.sin(Date.now() * 0.008 + i * 0.3) * 0.25 : 0;
-          
-          let barHeightMultiplier = isMastered ? (patVal + 0.3 + timeOffset) : (patVal * 0.5 + timeOffset * 0.5);
-          barHeightMultiplier = Math.max(0.1, Math.min(1.0, barHeightMultiplier));
-          
-          const barH = barHeightMultiplier * (height * 0.8);
-          const x = i * (barWidth + barGap);
-          const y = (height - barH) / 2;
-
-          if (isMastered) {
-            const grad = ctx.createLinearGradient(0, y, 0, y + barH);
-            grad.addColorStop(0, '#f59e0b');
-            grad.addColorStop(1, '#ef4444');
-            ctx.fillStyle = grad;
-          } else {
-            ctx.fillStyle = isPlaying ? '#6b7280' : '#374151';
-          }
-
-          ctx.beginPath();
-          ctx.roundRect(x, y, barWidth, barH, 3);
-          ctx.fill();
-        }
-
-        requestAnimationFrame(renderFrame);
-      }
-      renderFrame();
-    }
-
-    function setAudioMode(mode) {
-      audioMode = mode;
-      document.getElementById('abRawBtn').classList.toggle('active-mode', mode === 'raw');
-      document.getElementById('abMasteredBtn').classList.toggle('active-mode', mode === 'mastered');
-      if (isPlaying) {
-        stopAudioSynthesis();
-        startAudioSynthesis();
+      const wasPlaying = isPlaying;
+      audio.src = tracks[mode];
+      if (wasPlaying) {
+        audio.play().catch(() => startSynthFallback());
       }
     }
 
-    function toggleAudioPlay() {
+    function togglePlay() {
       if (isPlaying) {
         pauseAudio();
       } else {
@@ -1945,90 +625,111 @@
     }
 
     function playAudio() {
-      isPlaying = true;
-      document.getElementById('mainPlayBtn').innerText = '❚❚';
-      startAudioSynthesis();
-
-      playTimer = setInterval(() => {
-        playProgressSec += 0.5;
-        const total = SINGLE_FEATURED_TRACK.duration;
-        if (playProgressSec >= total) {
-          playProgressSec = 0;
-        }
-        updateTimelineUI();
-      }, 500);
+      if (!audio.src || audio.src === window.location.href) {
+        audio.src = tracks[currentMode];
+      }
+      audio.play().then(() => {
+        isPlaying = true;
+        playIcon.className = 'fa-solid fa-pause';
+        animateVisualizer();
+      }).catch(err => {
+        // Fallback: Use Web Audio API synthesizer if audio files are not in repo yet
+        startSynthFallback();
+      });
     }
 
     function pauseAudio() {
       isPlaying = false;
-      document.getElementById('mainPlayBtn').innerText = '▶';
-      clearInterval(playTimer);
-      stopAudioSynthesis();
+      audio.pause();
+      if (synthInterval) clearInterval(synthInterval);
+      playIcon.className = 'fa-solid fa-play';
+      bars.forEach(b => b.style.height = '15%');
     }
 
-    function updateTimelineUI() {
-      const total = SINGLE_FEATURED_TRACK.duration;
-      const pct = (playProgressSec / total) * 100;
-      document.getElementById('timelineProgress').style.width = pct + '%';
-      
-      const curSec = Math.floor(playProgressSec);
-      document.getElementById('currentTimeDisplay').innerText = "0:" + (curSec < 10 ? "0" : "") + curSec;
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = pct + '%';
+        timeDisplay.innerText = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      pauseAudio();
+      progressFill.style.width = '0%';
+    });
+
+    function seekAudio(e) {
+      const rect = document.getElementById('progressContainer').getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      if (audio.duration) {
+        audio.currentTime = pos * audio.duration;
+      }
     }
 
-    function seekAudioTimeline(e) {
-      const bar = e.currentTarget;
-      const rect = bar.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const pct = clickX / rect.width;
-      const total = SINGLE_FEATURED_TRACK.duration;
-      playProgressSec = pct * total;
-      updateTimelineUI();
+    function formatTime(secs) {
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
     }
 
-    /* Simple Native Web Audio Synthesizer Preview */
-    function startAudioSynthesis() {
+    function animateVisualizer() {
+      if (!isPlaying) return;
+      bars.forEach(bar => {
+        const h = Math.floor(Math.random() * (currentMode === 'master' ? 85 : 45)) + 15;
+        bar.style.height = h + '%';
+      });
+      setTimeout(() => {
+        if (isPlaying) requestAnimationFrame(animateVisualizer);
+      }, 80);
+    }
+
+    // Built-in Synth Fallback if local mp3 files aren't uploaded yet
+    function startSynthFallback() {
       try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (!audioContext) {
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
+        if (audioContext.state === 'suspended') {
+          audioContext.resume();
         }
-        
-        const track = SINGLE_FEATURED_TRACK;
-        currentOscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
+        isPlaying = true;
+        playIcon.className = 'fa-solid fa-pause';
+        animateVisualizer();
 
-        currentOscillator.type = audioMode === 'mastered' ? 'triangle' : 'sine';
-        currentOscillator.frequency.setValueAtTime(track.baseFreq, audioCtx.currentTime);
+        let count = 0;
+        synthInterval = setInterval(() => {
+          count++;
+          const osc = audioContext.createOscillator();
+          const gain = audioContext.createGain();
+          osc.type = currentMode === 'master' ? 'sawtooth' : 'sine';
+          osc.frequency.setValueAtTime(220 * (count % 4 + 1), audioContext.currentTime);
+          gain.gain.setValueAtTime(0.05, audioContext.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.3);
+          osc.connect(gain);
+          gain.connect(audioContext.destination);
+          osc.start();
+          osc.stop(audioContext.currentTime + 0.3);
 
-        const gainVal = audioMode === 'mastered' ? 0.12 : 0.05;
-        gainNode.gain.setValueAtTime(gainVal, audioCtx.currentTime);
-
-        currentOscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        currentOscillator.start();
-      } catch(err) {
-        // Fallback smooth visual mode
+          if (count >= 30) {
+            pauseAudio();
+          }
+        }, 300);
+      } catch (e) {
+        console.warn('Audio fallback not supported');
       }
     }
 
-    function stopAudioSynthesis() {
-      if (currentOscillator) {
-        try {
-          currentOscillator.stop();
-          currentOscillator.disconnect();
-        } catch(e) {}
-        currentOscillator = null;
-      }
+    // 3. Fallback Image Handler (prevents broken image icons)
+    function handleImgError(img, label, iconClass) {
+      const parent = img.parentElement;
+      parent.innerHTML = `
+        <div class="img-fallback">
+          <i class="fa-solid ${iconClass}" style="font-size: 2.2rem; color: var(--primary);"></i>
+          <span>${label}</span>
+        </div>
+      `;
     }
-
-    window.addEventListener('load', () => {
-      initCanvasVisualizer();
-    });
-    window.addEventListener('resize', () => {
-      initCanvasVisualizer();
-    });
   </script>
 </body>
 </html>
