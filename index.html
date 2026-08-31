@@ -499,50 +499,54 @@
       transform: translateY(-3px);
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
     }
-    .service-icon {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
-    }
-    .customer-facing-title {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .customer-facing-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 18px;
-    }
-    .technical-details {
-      background: rgba(0, 0, 0, 0.35);
-      border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 0.76rem;
-      color: #9ca3af;
-      line-height: 1.5;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      margin-bottom: 18px;
-    }
-    .technical-details strong {
-      color: var(--accent);
-      display: block;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 3px;
-    }
-    .service-card-btn {
-      font-size: 0.86rem;
-      font-weight: 700;
-      color: var(--accent);
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
+    <div class="gallery-grid-dynamic">
+        
+        <!-- Photo 1: Live Band Jamming & Drum Tracking -->
+        <div class="gallery-card featured-large">
+          <img src="images/live-band-session.jpg" alt="Live band rehearsal and drum recording session at Monk Studios Production" loading="lazy">
+          <div class="gallery-card-content">
+            <h4>Spacious Live Room & Jamming</h4>
+            <p>Acoustically tuned for full band setups, multi-mic drum tracking, guitars, keyboards, and live rehearsals.</p>
+          </div>
+        </div>
+
+        <!-- Photo 2: Control Room & DAW Desk -->
+        <div class="gallery-card featured-tall">
+          <img src="images/control-room-desk.jpg" alt="Calibrated control room mixing desk at Monk Studios Production" loading="lazy">
+          <div class="gallery-card-content">
+            <h4>Calibrated Control Room</h4>
+            <p>Near-field monitoring, surgical multi-track mixing console, and complete acoustic diffusion.</p>
+          </div>
+        </div>
+
+        <!-- Photo 3: Commercial & Song Production Collaboration -->
+        <div class="gallery-card col-4">
+          <img src="images/studio-artists-production.jpg" alt="Music production and artist recording session at Monk Studios" loading="lazy">
+          <div class="gallery-card-content">
+            <h4>Collaborative Song Production</h4>
+            <p>From vocal direction to full instrumental arrangement with seasoned producers.</p>
+          </div>
+        </div>
+
+        <!-- Photo 4: Vocal Booth & Voiceover Tracking -->
+        <div class="gallery-card col-4">
+          <img src="images/vocal-booth-session.jpg" alt="Vocal booth recording and voiceover tracking at Monk Studios" loading="lazy">
+          <div class="gallery-card-content">
+            <h4>Vocal & Dubbing Booth</h4>
+            <p>High-sensitivity studio condenser microphones, zero bleed, and instant latency-free monitoring.</p>
+          </div>
+        </div>
+
+        <!-- Photo 5: Choir / Ensemble & Group Recording -->
+        <div class="gallery-card col-4">
+          <img src="images/choir-recording-ensemble.jpeg" alt="Choir group and ensemble recording session at Monk Studios Nagpur" loading="lazy">
+          <div class="gallery-card-content">
+            <h4>Choral & Ensemble Tracking</h4>
+            <p>Spacious floor plan engineered to accommodate large vocal groups, school choirs, and acoustic ensembles.</p>
+          </div>
+        </div>
+
+      </div>
       gap: 6px;
       padding: 0;
       transition: gap 0.2s;
