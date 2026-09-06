@@ -333,7 +333,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
     }
     .nav-link {
       font-size: 0.88rem;
@@ -344,6 +344,10 @@
     }
     .nav-link:hover {
       color: #fff;
+    }
+    .nav-link-highlight {
+      color: var(--accent) !important;
+      font-weight: 700 !important;
     }
 
     /* Mobile Drawer & Backdrop */
@@ -649,7 +653,7 @@
       color: var(--accent);
     }
 
-    /* TRUST & PROUD CLIENTS CONTINUOUS HORIZONTAL MARQUEE (UPPER SECTION) */
+    /* TRUST & PROUD CLIENTS CONTINUOUS HORIZONTAL MARQUEE */
     .trust-section {
       padding: 44px 0 38px;
       border-top: 1px solid var(--border);
@@ -723,7 +727,7 @@
       display: flex;
       align-items: center;
       gap: 28px;
-      padding-right: 28px; /* Ensures identical spacing across group boundaries */
+      padding-right: 28px;
       flex-shrink: 0;
       will-change: transform;
       animation: marqueeScroll 36s linear infinite;
@@ -738,7 +742,7 @@
       }
     }
 
-    /* ENLARGED & PROMINENT Always-Colored Brand Badges */
+    /* Brand Badges */
     .client-brand-card {
       display: inline-flex;
       align-items: center;
@@ -768,7 +772,6 @@
       letter-spacing: -0.01em;
     }
 
-    /* Distinct Brand Color Accents */
     .brand-zerodha {
       border-color: rgba(56, 126, 209, 0.45);
       background: rgba(56, 126, 209, 0.1);
@@ -817,7 +820,7 @@
       color: #f472b6;
     }
 
-    /* THE MONK METHOD (FROM IDEA TO RELEASE) */
+    /* THE MONK METHOD */
     .monk-method-section {
       padding: 90px 0;
       background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0f16 100%);
@@ -873,7 +876,7 @@
       color: var(--accent);
     }
 
-    /* THREE-PILLAR SERVICES LAYOUT */
+    /* SERVICES LAYOUT */
     .services-section {
       padding: 90px 0;
     }
@@ -979,7 +982,8 @@
       align-items: center;
       gap: 6px;
       padding: 0;
-      transition: gap 0.2s;
+      text-decoration: none;
+      transition: gap 0.2s, color 0.2s;
     }
     .service-action-btn:hover {
       gap: 10px;
@@ -1165,7 +1169,7 @@
       line-height: 1.4;
     }
 
-    /* AUTHENTIC CURATED TESTIMONIAL PULL-QUOTES SECTION */
+    /* TESTIMONIALS */
     .reviews-section {
       padding: 95px 0;
       background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-dark) 100%);
@@ -1260,7 +1264,7 @@
       margin-top: 2px;
     }
 
-    /* Google Reviews Action Box Underneath */
+    /* Google Reviews Action Box */
     .reviews-google-cta-container {
       max-width: 680px;
       margin: 0 auto;
@@ -1712,6 +1716,8 @@
       <div class="nav-links">
         <a href="#method" class="nav-link">The Monk Method</a>
         <a href="#services" class="nav-link">Services</a>
+        <a href="services/vocal-recording/" class="nav-link nav-link-highlight">Vocal Studio ↗</a>
+        <a href="services/mixing-mastering/" class="nav-link nav-link-highlight">Mixing & Mastering ↗</a>
         <a href="#mixcheck" class="nav-link">Mix Check</a>
         <a href="#studio" class="nav-link">The Studio</a>
         <a href="#reviews" class="nav-link">Reviews</a>
@@ -1739,7 +1745,9 @@
     </div>
     <ul class="mobile-drawer-links">
       <li><a href="#method" onclick="toggleMobileDrawer()">The Monk Method</a></li>
-      <li><a href="#services" onclick="toggleMobileDrawer()">Services</a></li>
+      <li><a href="#services" onclick="toggleMobileDrawer()">Services Overview</a></li>
+      <li><a href="services/vocal-recording/" style="color: var(--accent);">🎤 Vocal Studio Sub-Page ↗</a></li>
+      <li><a href="services/mixing-mastering/" style="color: var(--accent);">🎛️ Mixing & Mastering Sub-Page ↗</a></li>
       <li><a href="#mixcheck" onclick="toggleMobileDrawer()">Mix Check</a></li>
       <li><a href="#studio" onclick="toggleMobileDrawer()">The Studio</a></li>
       <li><a href="#reviews" onclick="toggleMobileDrawer()">Reviews</a></li>
@@ -1800,7 +1808,7 @@
     </div>
   </section>
 
-  <!-- UPPER SECTION: ENLARGED PROUD CLIENTS & PLATFORM ASSOCIATIONS HORIZONTAL MARQUEE -->
+  <!-- TRUST & PLATFORM ASSOCIATIONS CONTINUOUS MARQUEE -->
   <section class="trust-section" aria-label="Brands and Platforms">
     <div class="trust-header-row">
       <div class="trust-rating-pill">
@@ -1814,11 +1822,10 @@
       </div>
     </div>
 
-    <!-- Infinite Continuous Moving Horizontal Track (Optimized Size & Fluid CSS Translate3d) -->
     <div class="marquee-container" aria-label="Brand marquee">
       <div class="marquee-track">
         
-        <!-- Primary Group (Spans across wide/ultrawide viewports with zero empty spaces) -->
+        <!-- Primary Group -->
         <div class="marquee-group">
           <!-- Set 1 -->
           <div class="client-brand-card brand-zerodha" title="Zerodha">
@@ -1909,7 +1916,7 @@
           </div>
         </div>
 
-        <!-- Secondary Duplicate Group (Seamless clone following behind with identical width) -->
+        <!-- Secondary Duplicate Group -->
         <div class="marquee-group" aria-hidden="true">
           <!-- Set 1 -->
           <div class="client-brand-card brand-zerodha" title="Zerodha">
@@ -2070,7 +2077,7 @@
     </div>
   </section>
 
-  <!-- REORGANIZED THREE-PILLAR SERVICES SECTION -->
+  <!-- THREE-PILLAR SERVICES SECTION WITH SEARCH OPTIMIZED SUB-PAGE LINKS -->
   <section id="services" class="services-section">
     <div class="container">
       
@@ -2089,11 +2096,10 @@
 
         <div class="services-grid-open">
           
-          <!-- Vocal Tracking -->
+          <!-- Vocal Tracking (Links to Dedicated Sub-Page) -->
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Clean Mic Line Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
                   <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -2108,14 +2114,16 @@
                 Neumann condenser chain • discrete low-noise preamps • zero-latency monitoring • 24-bit/96kHz WAV capture
               </div>
             </div>
-            <button onclick="openBookingModal('Vocal Tracking')" class="service-action-btn">Request Vocal Session →</button>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="services/vocal-recording/" class="service-action-btn">Explore Vocal Booth & Specs →</a>
+              <button onclick="openBookingModal('Vocal Tracking')" style="background: none; border: none; font-size: 0.8rem; color: var(--text-dim); text-align: left; cursor: pointer; padding: 0;">Quick WhatsApp Request</button>
+            </div>
           </div>
 
           <!-- Song Production -->
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Music / Beats Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="5.5" cy="17.5" r="3.5"/>
                   <circle cx="17.5" cy="15.5" r="3.5"/>
@@ -2132,11 +2140,10 @@
             <button onclick="openBookingModal('Music Production')" class="service-action-btn">Start Song Production →</button>
           </div>
 
-          <!-- Mixing & Mastering -->
+          <!-- Mixing & Mastering (Links to Dedicated Sub-Page) -->
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Sliders / Equalizer Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="4" y1="21" x2="4" y2="14"/>
                   <line x1="4" y1="10" x2="4" y2="3"/>
@@ -2156,14 +2163,16 @@
                 Stem separation balance • pitch alignment • analog saturation • -14 LUFS commercial standards
               </div>
             </div>
-            <button onclick="openBookingModal('Mixing & Mastering')" class="service-action-btn">Send Tracks for Mix →</button>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="services/mixing-mastering/" class="service-action-btn">View Mixing & Mastering Pipeline →</a>
+              <button onclick="openBookingModal('Mixing & Mastering')" style="background: none; border: none; font-size: 0.8rem; color: var(--text-dim); text-align: left; cursor: pointer; padding: 0;">Send Tracks via WhatsApp</button>
+            </div>
           </div>
 
           <!-- Live Band & Drums -->
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Drum / Speaker Wave Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <ellipse cx="12" cy="8" rx="9" ry="4"/>
                   <path d="M3 8v8c0 2.21 4.03 4 9 4s9-1.79 9-4V8"/>
@@ -2196,7 +2205,6 @@
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Headphones Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
                   <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
@@ -2216,7 +2224,6 @@
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Radio Broadcast Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="2"/>
                   <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/>
@@ -2236,7 +2243,6 @@
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Megaphone Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                   <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
@@ -2256,7 +2262,6 @@
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Film Clapper Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <rect width="20" height="20" x="2" y="2" rx="2.18" ry="2.18"/>
                   <line x1="7" y1="2" x2="7" y2="22"/>
@@ -2294,7 +2299,6 @@
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Sweep / Wand Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <path d="m15 4-2 2"/>
                   <path d="m17 8-2 2"/>
@@ -2318,7 +2322,6 @@
           <div class="service-clean-item">
             <div>
               <div class="service-icon-box">
-                <!-- Activity / Pulse Wave Icon -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                 </svg>
@@ -2357,7 +2360,7 @@
             <div id="currentTrackTitle" class="track-title-info">Featured Studio Track - "Monk Production Master"</div>
           </div>
 
-          <!-- Raw vs Monk Mastered Synchronized A/B Switcher -->
+          <!-- Raw vs Monk Mastered Switcher -->
           <div class="ab-toggle-box">
             <button id="abRawBtn" class="ab-btn" onclick="setAudioMode('raw')">RAW SESSION</button>
             <button id="abMasteredBtn" class="ab-btn active-mode" onclick="setAudioMode('mastered')">MONK MASTERED ★</button>
@@ -2457,7 +2460,7 @@
     </div>
   </section>
 
-  <!-- AUTHENTIC CURATED TESTIMONIAL PULL-QUOTES SECTION -->
+  <!-- TESTIMONIALS SECTION -->
   <section id="reviews" class="reviews-section">
     <div class="container">
       
@@ -2467,10 +2470,9 @@
         <p class="section-subtitle">Real excerpts from verified Google Reviews written by artists, directors, and creators recorded at Monk Studios Production.</p>
       </div>
 
-      <!-- Curated 3 High-Impact Pull Quotes -->
       <div class="reviews-grid">
         
-        <!-- Pull Quote 1: Prithvi Thakur (Acoustic Sanctuary) -->
+        <!-- Review 1 -->
         <div class="testimonial-pull-card">
           <div>
             <div class="quote-badge-top">
@@ -2495,7 +2497,7 @@
           </div>
         </div>
 
-        <!-- Pull Quote 2: Mahesh Thombare (Equipment & Audio Quality) -->
+        <!-- Review 2 -->
         <div class="testimonial-pull-card">
           <div>
             <div class="quote-badge-top">
@@ -2520,7 +2522,7 @@
           </div>
         </div>
 
-        <!-- Pull Quote 3: Mayuresh Patil (Execution & Results) -->
+        <!-- Review 3 -->
         <div class="testimonial-pull-card">
           <div>
             <div class="quote-badge-top">
@@ -2547,7 +2549,7 @@
 
       </div>
 
-      <!-- Direct Google Business Verification CTA Box -->
+      <!-- Google Business Verification CTA Box -->
       <div class="reviews-google-cta-container">
         <div class="reviews-score-line">
           <svg class="google-g-icon" viewBox="0 0 24 24">
@@ -2865,7 +2867,7 @@
 
   <div class="toast-box" id="toastBox">Opening WhatsApp...</div>
 
-  <!-- Footer -->
+  <!-- Footer with SEO Topic Cluster Links -->
   <footer>
     <div class="container">
       <div class="footer-wrap">
@@ -2883,7 +2885,9 @@
           <h5 style="color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Navigation</h5>
           <ul style="list-style: none; font-size: 0.88rem; line-height: 2;">
             <li><a href="#method" style="color: var(--text-muted); text-decoration: none;">The Monk Method</a></li>
-            <li><a href="#services" style="color: var(--text-muted); text-decoration: none;">Services</a></li>
+            <li><a href="#services" style="color: var(--text-muted); text-decoration: none;">Services Overview</a></li>
+            <li><a href="services/vocal-recording/" style="color: var(--accent); text-decoration: none; font-weight: 700;">Vocal Recording Studio ↗</a></li>
+            <li><a href="services/mixing-mastering/" style="color: var(--accent); text-decoration: none; font-weight: 700;">Mixing & Mastering ↗</a></li>
             <li><a href="#mixcheck" style="color: var(--text-muted); text-decoration: none;">Mix Check</a></li>
             <li><a href="#studio" style="color: var(--text-muted); text-decoration: none;">The Studio</a></li>
             <li><a href="#reviews" style="color: var(--text-muted); text-decoration: none;">Reviews</a></li>
@@ -3205,7 +3209,7 @@
       updateTimelineUI();
     }
 
-    /* REAL CANVAS WAVEFORM VISUALIZER */
+    /* CANVAS WAVEFORM VISUALIZER */
     function initCanvasVisualizer() {
       const canvas = document.getElementById('audioCanvas');
       if (!canvas || !canvas.parentElement) return;
