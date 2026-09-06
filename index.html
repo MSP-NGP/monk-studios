@@ -26,18 +26,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Structured Data JSON-LD Schema -->
+  <!-- Comprehensive Structured Data JSON-LD Schema (MusicRecordingStudio & LocalBusiness) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "EntertainmentBusiness"],
-    "name": "Monk Studios Production",
-    "image": "images/control-room-desk.jpg",
+    "@type": ["MusicRecordingStudio", "LocalBusiness", "EntertainmentBusiness", "ProfessionalService"],
     "@id": "https://msp-ngp.github.io/monk-studios/#studio",
+    "name": "Monk Studios Production",
+    "alternateName": ["Monk Studios", "Monk Studios Nagpur"],
+    "description": "Professional recording studio, music production house, vocal tracking booth, live band tracking, audio mixing, mastering, dubbing, and voiceover facility located 50 steps from Indora Square Metro Station, Nagpur.",
     "url": "https://msp-ngp.github.io/monk-studios/",
     "telephone": "+917887621520",
     "email": "higheroctavess@gmail.com",
     "priceRange": "₹999+",
+    "currenciesAccepted": "INR",
+    "paymentAccepted": "Cash, UPI, Credit Card, Debit Card, Net Banking",
+    "image": [
+      "https://msp-ngp.github.io/monk-studios/images/control-room-desk.jpg",
+      "https://msp-ngp.github.io/monk-studios/images/live-band-session.jpg",
+      "https://msp-ngp.github.io/monk-studios/images/vocal-booth-session.jpg"
+    ],
+    "logo": "https://msp-ngp.github.io/monk-studios/logo.png",
+    "hasMap": "https://maps.google.com/maps?cid=9550955649622825373",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Plot no. 684, Sanjay Maidan, 50 Steps from Indora Square Metro Station, Opposite Indian Oil Petrol Pump, Indora, Model Town",
@@ -51,19 +61,166 @@
       "latitude": 21.1747761,
       "longitude": 79.1010714
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+917887621520",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Hindi", "Marathi"],
+      "hoursAvailable": "Mo-Su 00:00-23:59"
     },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Nagpur"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Vidarbha"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Maharashtra"
+      }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    ],
     "sameAs": [
-      "https://maps.google.com/?cid=9550955649622825373",
-      "https://msp-ngp.github.io/monk-studios/"
+      "https://maps.google.com/maps?cid=9550955649622825373",
+      "https://wa.me/917887621520",
+      "https://github.com/MSP-NGP"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Studio & Audio Engineering Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Vocal Tracking & Recording",
+            "description": "Professional studio vocal tracking with high-end condenser microphones and zero-latency monitoring in an acoustically treated booth."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Music Production & Arrangement",
+            "description": "Full composition from scratch, incorporating beat making, acoustic orchestration, and live ethnic percussion."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mixing & Mastering",
+            "description": "Spatial stem mixing, analog coloration, and true-peak broadcast mastering meeting Spotify, Apple Music, and YouTube loudness standards."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Live Band & Drum Kit Tracking",
+            "description": "Spacious live floor recording engineered for full musical ensembles, 5-to-7 piece bands, and acoustic drum micing."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Voiceover & Dubbing",
+            "description": "Broadcast-grade spoken word, audiobook recording, dialogue dubbing, and commercial advertising voiceovers."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Audio Restoration & Noise Removal",
+            "description": "Spectral dialogue cleanup, AC hum suppression, clipping repair, and room reverberation reduction."
+          }
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "127",
+      "reviewCount": "127"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "MusicRecordingStudio",
+          "name": "Monk Studios Production"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Prithvi Thakur"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "An outstanding experience at Monk Studios Production! The moment you step in, the atmosphere is incredibly positive and professional, a true 'sonic sanctuary' for artists. The top-notch equipment and acoustically controlled environment deliver exceptional sound quality with depth and nuance."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "MusicRecordingStudio",
+          "name": "Monk Studios Production"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Mahesh Thombare"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "The audio quality they deliver is exceptional. Top-tier equipment, making it the best spot for professional recording, mixing, and dubbing. Highly recommend their services for anyone looking to get high-quality sound produced!"
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "MusicRecordingStudio",
+          "name": "Monk Studios Production"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Mayuresh Patil"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Monk Studios Production truly stands out for its creativity, professionalism, and attention to detail. From planning to execution, everything was smooth and well-organized, and the final output exceeded expectations."
+      }
     ]
   }
   </script>
-  
+
   <style>
     :root {
       --bg-dark: #08090c;
@@ -190,60 +347,114 @@
       color: #fff;
     }
 
-    /* Mobile Drawer */
+    /* Mobile Drawer & Backdrop */
     .mobile-menu-trigger {
       display: none;
-      background: none;
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-accent);
       color: #fff;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 1.05rem;
-      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
       cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: all 0.2s ease;
+      z-index: 60;
+    }
+    .mobile-menu-trigger:active {
+      transform: scale(0.95);
+      background: rgba(245, 158, 11, 0.18);
+      border-color: var(--accent);
+    }
+    .mobile-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 5, 8, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      touch-action: manipulation;
+    }
+    .mobile-drawer-backdrop.open {
+      opacity: 1;
+      visibility: visible;
     }
     .mobile-drawer {
       position: fixed;
       top: 0;
-      right: -100%;
-      width: 280px;
+      right: 0;
+      width: 300px;
+      max-width: 86vw;
       height: 100vh;
-      background: #11131b;
-      border-left: 1px solid var(--border);
-      z-index: 1000;
-      padding: 30px;
-      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      height: 100dvh;
+      background: #11131c;
+      border-left: 1px solid var(--border-accent);
+      z-index: 999;
+      padding: 28px 24px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      box-shadow: -20px 0 50px rgba(0,0,0,0.8);
+      gap: 18px;
+      box-shadow: -15px 0 40px rgba(0,0,0,0.85);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      transform: translateX(100%);
+      will-change: transform;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .mobile-drawer.open {
-      right: 0;
+      transform: translateX(0);
+    }
+    body.drawer-open {
+      overflow: hidden;
     }
     .mobile-drawer-close {
       align-self: flex-end;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
       border: 1px solid var(--border);
       color: #fff;
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      touch-action: manipulation;
+      transition: background 0.2s;
+    }
+    .mobile-drawer-close:active {
+      background: rgba(245, 158, 11, 0.25);
     }
     .mobile-drawer-links {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-top: 14px;
+      gap: 14px;
+      margin-top: 10px;
     }
     .mobile-drawer-links a {
-      color: #fff;
-      font-size: 1.05rem;
+      color: #f3f4f6;
+      font-size: 1.02rem;
       font-weight: 600;
       text-decoration: none;
+      display: block;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .mobile-drawer-links a:hover,
+    .mobile-drawer-links a:active {
+      color: var(--accent);
+      transform: translateX(4px);
     }
 
     /* Buttons */
@@ -1451,15 +1662,18 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 880px) {
       .nav-links {
-        display: none;
+        display: none !important;
       }
       .mobile-menu-trigger {
-        display: inline-flex;
+        display: inline-flex !important;
         align-items: center;
         justify-content: center;
       }
+    }
+
+    @media (max-width: 768px) {
       .mobile-bottom-bar {
         display: block;
       }
@@ -1508,15 +1722,18 @@
         <button onclick="openBookingModal('Header - Start Your Project')" class="btn btn-primary btn-sm">Start Your Project</button>
       </div>
 
-      <button class="mobile-menu-trigger" onclick="toggleMobileDrawer()" aria-label="Open navigation menu">
+      <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" onclick="toggleMobileDrawer()" aria-label="Open navigation menu">
         MONK ☰
       </button>
     </div>
   </header>
 
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="toggleMobileDrawer()"></div>
+
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
-    <button class="mobile-drawer-close" onclick="toggleMobileDrawer()">×</button>
+    <button type="button" class="mobile-drawer-close" onclick="toggleMobileDrawer()" aria-label="Close menu">×</button>
     <div style="display: flex; align-items: center; gap: 10px;">
       <img src="logo.png" alt="Monk Studios" style="height: 32px; width: auto;" onerror="this.onerror=null; this.src='images/logo.png'; this.onerror=function(){ this.style.display='none'; };">
       <div style="font-weight: 800; font-size: 1.2rem; color: var(--accent);">MONK STUDIOS</div>
@@ -1531,8 +1748,8 @@
       <li><a href="#faq" onclick="toggleMobileDrawer()">FAQ</a></li>
       <li><a href="#location" onclick="toggleMobileDrawer()">Location</a></li>
     </ul>
-    <div style="margin-top: auto;">
-      <button onclick="toggleMobileDrawer(); openBookingModal('Mobile Drawer - Start Project');" class="btn btn-primary btn-block">Start Your Project</button>
+    <div style="margin-top: auto; padding-top: 20px;">
+      <button type="button" onclick="toggleMobileDrawer(); openBookingModal('Mobile Drawer - Start Project');" class="btn btn-primary btn-block">Start Your Project</button>
     </div>
   </div>
 
@@ -2698,7 +2915,20 @@
     /* Navigation & Modal JS */
     function toggleMobileDrawer() {
       const drawer = document.getElementById('mobileDrawer');
-      drawer.classList.toggle('open');
+      const backdrop = document.getElementById('mobileDrawerBackdrop');
+      if (!drawer) return;
+
+      const isOpen = drawer.classList.toggle('open');
+      if (backdrop) {
+        backdrop.classList.toggle('open', isOpen);
+      }
+      
+      // Prevent background scrolling while drawer is active
+      if (isOpen) {
+        document.body.classList.add('drawer-open');
+      } else {
+        document.body.classList.remove('drawer-open');
+      }
     }
 
     function toggleFaq(btn) {
